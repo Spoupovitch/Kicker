@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous"/>
     <link rel="stylesheet" href="assets/css/style.css"/>
     <link rel="stylesheet" href="assets/css/modal_style.css"/>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Kicker - Stop it.</title>
 </head>
 <body>
@@ -46,9 +48,12 @@
         </div>    
     </section>
 
+    <!-- time on site reminder -->
+    <div id="clock"></div>
 
     <!-- modals section -->
     <div class="modal">
+
         <div id="listen_modal" class="modal_window">
             <div id="podcast" onclick="mediaFromCategory(id)">
                 Podcast
@@ -57,16 +62,14 @@
         </div>
 
         <div id="memorize_modal" class="modal_window">
-            <div>
-                <label id="50_states" onclick="mediaFromCategory(id)">50 States</label>
+            <div id="50_states" onclick="mediaFromCategory(id)">
+                <label>50 States</label>
                 <i class="fas fa-chevron-right"></i>
             </div>
         </div>
-    </div>
+        
+    </div> <!-- end modals section -->
 
     <script type="text/javascript" src="assets/js/script.js"></script>
-    <!--
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    -->
 </body>
 </html>

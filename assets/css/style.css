@@ -4,8 +4,13 @@
     padding: 0;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     background: #434343;
+    min-height: 98%;
 }
 
 .grid_container {
@@ -81,4 +86,14 @@ body {
 }
 .bg2 > .far {
     font-size: 2.5em;
+}
+
+#clock {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.15em;
+    color: white;
+
+    position: absolute;
+    right: 1em;
+    bottom: 1em;
 }
