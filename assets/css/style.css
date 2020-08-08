@@ -69,9 +69,16 @@ body {
     color: #ffffff;
 }
 
-.fas {
+.bg1 > .fas {
     font-size: 2.5em;
 }
-.far {
+.bg2 > .fas {
+    font-size: 2.5em;
+}
+
+.bg1 > .far {
+    font-size: 2.5em;
+}
+.bg2 > .far {
     font-size: 2.5em;
 }
