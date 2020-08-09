@@ -1,6 +1,8 @@
-var seconds = 0;
-var minutes = 0;
-var hours = 0;
+const notifSound1 = "assets/sounds/notification-sound.mp3";
+const notifSound2 = "assets/sounds/damn-son-whered-you-find-this.mp3";
+// break reminder notification sound
+const ding = new Audio(notifSound2);
+ding.volume = .25;
 
 // show the modal for the clicked tile
 function showModal(id) {
@@ -27,6 +29,9 @@ window.onclick = function(ev) {
 }
 
 // stopwatch
+let seconds = 0;
+let minutes = 0;
+let hours = 0;
 tick();
 function timeOnSite() {
     setTimeout(tick, 1000);
@@ -37,7 +42,8 @@ function tick() {
     if (seconds >= 60) {
         seconds = 0;
         minutes++;
-        
+        if (minutes % 30 == 0) ding.play();
+
         if (minutes >= 60) {
             minutes = 0;
             hours++;

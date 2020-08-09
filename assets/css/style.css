@@ -88,12 +88,18 @@ body {
     font-size: 2.5em;
 }
 
-#clock {
+#clock_container {
     font-family: 'Rajdhani', sans-serif;
     font-size: 1.15em;
     color: white;
 
     position: absolute;
+    display: inline-flex;
+    gap: .5em;
     right: 1em;
     bottom: 1em;
+}
+
+#clock_tooltip:hover {
+    cursor: default;
 }

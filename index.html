@@ -49,10 +49,18 @@
     </section>
 
     <!-- time on site reminder -->
-    <div id="clock"></div>
+    <div id="clock_container">
+        <div id="clock"></div>
+        <div id="clock_tooltip" onclick="ding.play()"
+        title="At 30 minutes, a reminder to get up is played.
+            Want to hear what it sounds like?
+            Click the question mark!">
+            ?
+        </div>
+    </div>
 
     <!-- modals section -->
-    <div class="modal">
+    <section class="modal">
 
         <div id="listen_modal" class="modal_window">
             <div id="podcast" onclick="mediaFromCategory(id)">
@@ -68,7 +76,7 @@
             </div>
         </div>
         
-    </div> <!-- end modals section -->
+    </section> <!-- end modals section -->
 
     <script type="text/javascript" src="assets/js/script.js"></script>
 </body>
