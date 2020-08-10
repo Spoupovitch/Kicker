@@ -9,8 +9,9 @@ html {
 }
 
 body {
-    background: #434343;
-    min-height: 98%;
+    background: #525252;
+    min-height: 99%;
+    font-family: 'Kanit', sans-serif;
 }
 
 .grid_container {
@@ -33,7 +34,6 @@ body {
 
     transition: all .1s ease-in;
 }
-
 .grid_container > div:hover {
     opacity: .9;
     transform: scale(.99);
@@ -91,7 +91,7 @@ body {
 #clock_container {
     font-family: 'Rajdhani', sans-serif;
     font-size: 1.15em;
-    color: white;
+    color: #efefef;
 
     position: absolute;
     display: inline-flex;
@@ -100,6 +100,10 @@ body {
     bottom: 1em;
 }
 
+#clock_tootip {
+    color: #ca0101;
+    border-bottom: .05em dotted;
+}
 #clock_tooltip:hover {
     cursor: default;
 }

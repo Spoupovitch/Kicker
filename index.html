@@ -4,6 +4,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@400&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous"/>
@@ -63,15 +64,23 @@
     <section class="modal">
 
         <div id="listen_modal" class="modal_window">
-            <div id="podcast" onclick="mediaFromCategory(id)">
-                Podcast
+            <div onclick="showMediaFromCategory(this)">
+                <label>Sports</label>
                 <i class="fas fa-chevron-right"></i>
             </div>
         </div>
 
         <div id="memorize_modal" class="modal_window">
-            <div id="50_states" onclick="mediaFromCategory(id)">
-                <label>50 States</label>
+            <div onclick="showMediaFromCategory(this)">
+                <label>Geography</label>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div onclick="showMediaFromCategory(this)">
+                <label>Science</label>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div onclick="showMediaFromCategory(this)">
+                <label>History</label>
                 <i class="fas fa-chevron-right"></i>
             </div>
         </div>

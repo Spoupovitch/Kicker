@@ -15,24 +15,19 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: .5em;
-    padding: 3em;
-
+    align-items: center;
+    justify-items: center;
+    
     position: relative;
     background-color: #efefef;
+    padding: 3em;
     margin: auto;
     width: 75%;
     height: 50%;
     font-size: 2em;
-}
 
-.modal_window > div {
-    flex-direction: row;
-    transition: all .2s ease-in-out;
+    transition: transform 2s, opacity .25s, display .3s;
 }
-.modal_window > div:hover {
-    scale: 1.15;
-}
-
 
 #listen_modal {
     display: none;

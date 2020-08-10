@@ -18,11 +18,13 @@ function showModal(id) {
 window.onclick = function(ev) {
     if(ev.target == document.querySelector('.modal')) {
         // hide all modal_window elements
-        const modal_windows = document.querySelectorAll('.modal')[0].children;
+        let modal_windows = document.querySelectorAll('.modal')[0].children;
         for (i = 0; i < modal_windows.length; i++) {
             modal_windows[i].style.display = 'none';
+
+            // reset all modal_windows' styling
+            resetModalWindowDefaults(modal_windows[i]);
         }
-        
         // hide modal background
         document.querySelector('.modal').style.display = 'none';
     }
@@ -75,7 +77,19 @@ function tick() {
     timeOnSite();
 }
 
-// redirect to media of type chosen by user
-function goToMediaFromCategory(id) {
-    console.log(id);
+// screen wipe to show media in category selected
+function showMediaFromCategory(elem) {
+    const parentNode = elem.parentNode;
+    
+    parentNode.style.transform = "translateX(-2em)";
+    parentNode.style.opacity = "0";
+    setTimeout(function() {
+        parentNode.style.display = "none";
+    }, 350);
+}
+
+// reset initial CSS conditions for modal_window elements
+function resetModalWindowDefaults(elem) {
+    elem.style.transform = "translateX(0em)";
+    elem.style.opacity = "1";
 }
