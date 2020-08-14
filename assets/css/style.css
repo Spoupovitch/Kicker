@@ -10,10 +10,11 @@ html {
 
 body {
     background: #525252;
-    min-height: 99%;
+    min-height: 100%;
     font-family: 'Kanit', sans-serif;
 }
 
+/* activities grid */
 .grid_container {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -74,6 +75,7 @@ body {
     color: #ffffff;
 }
 
+/* icon styling */
 .bg1 > .fas {
     font-size: 2.5em;
 }
@@ -88,6 +90,7 @@ body {
     font-size: 2.5em;
 }
 
+/* clock styling */
 #clock_container {
     font-family: 'Rajdhani', sans-serif;
     font-size: 1.15em;
@@ -96,8 +99,8 @@ body {
     position: absolute;
     display: inline-flex;
     gap: .5em;
-    right: 1em;
-    bottom: 1em;
+    right: .5em;
+    bottom: .5em;
 }
 
 #clock_tootip {

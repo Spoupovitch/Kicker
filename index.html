@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="assets/css/style.css"/>
     <link rel="stylesheet" href="assets/css/modal_style.css"/>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
     <title>Kicker - Stop it.</title>
 </head>
 <body>
@@ -49,43 +49,51 @@
         </div>    
     </section>
 
-    <!-- time on site reminder -->
-    <div id="clock_container">
-        <div id="clock"></div>
-        <div id="clock_tooltip" onclick="ding.play()"
-        title="At 30 minutes, a reminder to get up is played.
-            Want to hear what it sounds like?
-            Click the question mark!">
-            ?
-        </div>
-    </div>
-
     <!-- modals section -->
     <section class="modal">
 
         <div id="listen_modal" class="modal_window">
-            <div onclick="showMediaFromCategory(this)">
+            <div onclick="showModalForActivity(this)">
                 <label>Sports</label>
                 <i class="fas fa-chevron-right"></i>
             </div>
         </div>
 
         <div id="memorize_modal" class="modal_window">
-            <div onclick="showMediaFromCategory(this)">
+            <!-- categories -->
+            <div class="category" onclick="showModalForActivity(this)">
                 <label>Geography</label>
                 <i class="fas fa-chevron-right"></i>
             </div>
-            <div onclick="showMediaFromCategory(this)">
+            <div class="category" onclick="showModalForActivity(this)">
                 <label>Science</label>
                 <i class="fas fa-chevron-right"></i>
             </div>
-            <div onclick="showMediaFromCategory(this)">
+            <div class="category" onclick="showModalForActivity(this)">
                 <label>History</label>
                 <i class="fas fa-chevron-right"></i>
             </div>
+
+            <!-- links -->
+            <div class="geography category_link">
+                <a href="omegle.com">Omegle</a>
+            </div>
         </div>
         
-    </section> <!-- end modals section -->
+    </section>
+
+    <section>
+        <!-- time on site reminder -->
+        <div id="clock_container">
+            <div id="clock"></div>
+            <div id="clock_tooltip" onclick="ding.play()"
+            title="At 30 minutes, a reminder to get up is played.
+            Want to hear what it sounds like?
+            Click the question mark!">
+            ?
+            </div>
+        </div>
+    </section>
 
     <script type="text/javascript" src="assets/js/script.js"></script>
 </body>
