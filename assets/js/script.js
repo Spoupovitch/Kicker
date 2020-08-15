@@ -107,10 +107,8 @@ function tick() {
 
 // reset initial CSS conditions for modal_window elements
 function resetModalWindowDefaults(elem) {
-    console.log(elem);
     let categories = elem.querySelectorAll('.category');
     let categoryLinks = elem.querySelectorAll('.category_link');
-    console.log(categoryLinks);
 
     // reset categories
     for (i = 0; i < categories.length; i++) {
