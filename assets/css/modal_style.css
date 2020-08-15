@@ -28,10 +28,20 @@
 }
 .category {
     transition: transform 2s, opacity .25s;
+    display: inline;
 }
-.category_link {
+.category_link, .exercise {
     transform: translateX(2em);
     opacity: 0;
+    display: none;
+}
+
+.exercise {
+    display: none;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#get_up_modal {
     display: none;
 }
 

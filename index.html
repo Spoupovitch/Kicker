@@ -20,8 +20,8 @@
             <h2>Read</h2>
             <i class="fas fa-book-reader"></i>
         </div>
-        <div class="bg2">
-            <h2>Get up</h2>
+        <div id="get_up" class="bg2" onclick="showModal(id)">
+            <h2>Get Up</h2>
             <i class="fas fa-running"></i>
         </div>
         <div class="bg1">
@@ -52,31 +52,89 @@
     <!-- modals section -->
     <section class="modal">
 
+        <div id="get_up_modal" class="modal_window">
+            <!-- categories -->
+            <div class="category" onclick="showModalForCategory(this)">
+                <label>Weights</label>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="category calisthenics" onclick="showModalForCategory(this)">
+                <label>Calisthenics</label>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="category" onclick="showModalForCategory(this)">
+                <label>Cardio</label>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="category" onclick="showModalForCategory(this)">
+                <label>Yoga</label>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="category" onclick="showModalForCategory(this)">
+                <label>Random</label>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+
+            <!-- links -->
+            <div class="exercise weight">
+                <div>
+                    Click when you are done with: <span id="curlReps"></span> curls
+                </div>
+                <img src="assets\images\push_up.jpg">
+                <button type="button" onclick="closeModal()"></button>
+            </div>
+
+            <div class="exercise calisthenics">
+                <div>
+                    Click when you are done with: <span id="pushUpReps" style="color:rgb(202, 92, 1)"></span> push ups
+                </div>
+                <img src="assets\images\push_up.jpg">
+                <button type="button" onclick="closeModal()"></button>
+            </div>
+            <div class="exercise calisthenics">
+                <div>
+                    Click when you are done with: <span id="spidermanCrunchReps"style="color:rgb(202, 92, 1)"></span> spiderman crunches
+                </div>
+                <img src="assets\images\spiderman_crunch.png">
+                <button type="button" onclick="closeModal()"></button>
+            </div>
+        </div>
+
         <div id="listen_modal" class="modal_window">
-            <div class="category" onclick="showModalForActivity(this)">
+            <!-- categories -->
+            <div class="category" onclick="showModalForCategory(this)">
                 <label>Sports</label>
                 <i class="fas fa-chevron-right"></i>
             </div>
+
+            <!-- links -->
         </div>
 
         <div id="memorize_modal" class="modal_window">
             <!-- categories -->
-            <div class="category" onclick="showModalForActivity(this)">
+            <div class="category geography" onclick="showModalForCategory(this)">
                 <label>Geography</label>
                 <i class="fas fa-chevron-right"></i>
             </div>
-            <div class="category" onclick="showModalForActivity(this)">
+            <div class="category science" onclick="showModalForCategory(this)">
                 <label>Science</label>
                 <i class="fas fa-chevron-right"></i>
             </div>
-            <div class="category" onclick="showModalForActivity(this)">
+            <div class="category history" onclick="showModalForCategory(this)">
                 <label>History</label>
                 <i class="fas fa-chevron-right"></i>
             </div>
 
             <!-- links -->
-            <div class="geography category_link">
-                <a href="https://online.seterra.com/en/vgp/3003" target="_blank">50 States</a>
+            <div class="category_link geography">
+                <a href="https://online.seterra.com/en/vgp/3003" target="_blank">U.S. States</a>
+            </div>
+            <div class="category_link geography">
+                <a href="https://online.seterra.com/en/vgp/3063" target="_blank">U.S. State Capitals</a>
+            </div>
+
+            <div class="category_link science">
+                <a href="https://online.seterra.com/en-an/vgp/3829" target="_blank">Periodic Table</a>
             </div>
         </div>
         
