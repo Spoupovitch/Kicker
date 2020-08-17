@@ -1,4 +1,7 @@
+const fadeTime = 300;
+
 // values for exercises based on ability
+document.getElementById('curlReps').innerHTML = 15;
 document.getElementById('pushUpReps').innerHTML = 25;
 document.getElementById('spidermanCrunchReps').innerHTML = 30;
 
@@ -17,15 +20,16 @@ function showModal(id) {
     document.querySelector('.modal').style.display='grid';
 }
 
-// show the modal for the category selected
+// show the modal for the category selected, handle subsequent selection events
 function showModalForCategory(elem) {
     // category is in the 1 index of the element's classList
     let category = elem.classList[1];
-    let parentNode = elem.parentNode;
-    let categories = parentNode.querySelectorAll('.category');
-    let categoryLinks = parentNode.querySelectorAll('.category_link');
+    let parent = elem.parentNode;
+
+    let siblings = parent.children;
+    let categories = parent.querySelectorAll('.category');
     
-    // screen wipe categories
+    // screen wipe categories out
     for (let i = 0; i < categories.length; i++) {
         categories[i].style.transform = 'translateX(-2em)';
         categories[i].style.opacity = '0';
@@ -34,57 +38,25 @@ function showModalForCategory(elem) {
         for (let i = 0; i < categories.length; i++) {
             categories[i].style.display = 'none';
         }
-    }, 300);
+    }, fadeTime);
     
     // show modal for selected category of selected activity
     switch(category) {
         case 'geography':
         case 'science':
         case 'history':
-            for (let i = 0; i < categoryLinks.length; i++) {
-                // show modal that matches the clicked element's category 
-                if (category === categoryLinks[i].classList[1]) {
-                    for (let i = 0; i < categoryLinks.length; i++) {
-                        categoryLinks[i].style.display = 'grid';
-                    }
-                }
-            }
-            setTimeout(function() {
-                for (let i = 0; i < categoryLinks.length; i++) {
-                    // show modal that matches the clicked element's category 
-                    if (category === categoryLinks[i].classList[1]) {
-                        categoryLinks[i].style.transform = 'translateX(0em)';
-                        categoryLinks[i].style.opacity = '1';
-                    }
-                }
-            }, 300);
+            showCategoryLinks(category, parent);
             break;
 
+        case 'weight':
         case 'calisthenics':
-            let siblings = parentNode.children;
-            let calisthenics = [];
-
-            // change grid styling from parent
-            parentNode.style.gridTemplateColumns = '1fr';
-
-            for (let i = 0; i < parentNode.children.length; i++) {
-                // make a list of calisthenic exercise elements
-                if (siblings[i].classList[0] == "exercise"
-                && siblings[i].classList[1] == "calisthenics") {
-                    calisthenics.push(siblings[i]);
-                }
-            }
-            // choose a random exercise to display
-            let randomIdx = Math.floor(Math.random() * calisthenics.length);
-            
-            calisthenics[randomIdx].style.display = 'grid';
-            setTimeout(function() {
-                calisthenics[randomIdx].style.transform = 'translateX(0em)';
-                calisthenics[randomIdx].style.opacity = '1';
-            }, 300);
+        case 'cardio':
+        case 'yoga':
+            showRandomExercise(category, siblings, parent);
             break;
 
         default:
+            closeModal();
             console.log('The given category is not matched to any logic.');
             console.log('category encountered: ' + category);
     }
@@ -168,7 +140,7 @@ function resetModalWindowDefaults(modal_window) {
     for (let i = 0; i < categories.length; i++) {
         categories[i].style.transform = 'translateX(0em)';
         categories[i].style.opacity = '1';
-        categories[i].style.display = 'grid';
+        categories[i].style.display = 'inline';
     }
     
     // reset links
@@ -184,4 +156,50 @@ function resetModalWindowDefaults(modal_window) {
         exercises[i].style.opacity = '0';
         exercises[i].style.display = 'none';
     }
+}
+
+// show links for the selected category
+function showCategoryLinks(category, parent) {
+    let categoryLinks = parent.querySelectorAll('.category_link');
+
+    setTimeout(function() {
+    for (let i = 0; i < categoryLinks.length; i++) {
+        // show modal that matches the clicked element's category 
+        if (category === categoryLinks[i].classList[1]) {
+            for (let i = 0; i < categoryLinks.length; i++) {
+                categoryLinks[i].style.display = 'grid';
+            }
+        }
+    }
+        for (let i = 0; i < categoryLinks.length; i++) {
+            // show modal that matches the clicked element's category 
+            if (category === categoryLinks[i].classList[1]) {
+                categoryLinks[i].style.transform = 'translateX(0em)';
+                categoryLinks[i].style.opacity = '1';
+            }
+        }
+    }, fadeTime);
+}
+
+// show a random exercise from the selected category
+function showRandomExercise(category, siblings, parent) {
+    let exercises = [];
+    for (let i = 0; i < siblings.length; i++) {
+        // make a list of exercise elements for the category given
+        if (siblings[i].classList[0] == "exercise"
+        && siblings[i].classList[1] == category) {
+            exercises.push(siblings[i]);
+        }
+    }
+    // choose a random exercise to display
+    let randomIdx = Math.floor(Math.random() * exercises.length);
+    
+    setTimeout(function() {
+        exercises[randomIdx].style.display = 'grid';
+        exercises[randomIdx].style.transform = 'translateX(0em)';
+        exercises[randomIdx].style.opacity = '1';
+
+        // change grid styling for parent
+        parent.style.gridTemplateColumns = '1fr';
+    }, fadeTime);
 }

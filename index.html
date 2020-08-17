@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous"/>
     <link rel="stylesheet" href="assets/css/style.css"/>
-    <link rel="stylesheet" href="assets/css/modal_style.css"/>
+    <link rel="stylesheet" href="assets/css/modal_style.css"/>3
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
     <title>Kicker - Stop it.</title>
@@ -46,6 +46,7 @@
         </div>
         <div class="bg2">
             <h2>To Do</h2>
+            <i class="fas fa-clipboard-list"></i>
         </div>    
     </section>
 
@@ -54,7 +55,7 @@
 
         <div id="get_up_modal" class="modal_window">
             <!-- categories -->
-            <div class="category" onclick="showModalForCategory(this)">
+            <div class="category weight" onclick="showModalForCategory(this)">
                 <label>Weights</label>
                 <i class="fas fa-chevron-right"></i>
             </div>
@@ -62,47 +63,59 @@
                 <label>Calisthenics</label>
                 <i class="fas fa-chevron-right"></i>
             </div>
-            <div class="category" onclick="showModalForCategory(this)">
+            <div class="category cardio" onclick="showModalForCategory(this)">
                 <label>Cardio</label>
                 <i class="fas fa-chevron-right"></i>
             </div>
-            <div class="category" onclick="showModalForCategory(this)">
+            <div class="category yoga" onclick="showModalForCategory(this)">
                 <label>Yoga</label>
                 <i class="fas fa-chevron-right"></i>
             </div>
-            <div class="category" onclick="showModalForCategory(this)">
+            <div class="category random" onclick="showModalForCategory(this)">
                 <label>Random</label>
                 <i class="fas fa-chevron-right"></i>
             </div>
 
             <!-- links -->
             <div class="exercise weight">
-                <div>
-                    Click when you are done with: <span id="curlReps"></span> curls
-                </div>
-                <img src="assets\images\push_up.jpg">
-                <button type="button" onclick="closeModal()"></button>
+                <section class="center">
+                    <h3>
+                        Click when you are done with <span id="curlReps" class="target_reps"></span> curls
+                    </h3>
+                    <button type="button" onclick="closeModal()">Done</button>
+                </section>
+                <section class="center">
+                    <img src="assets\images\curl.jpg">
+                </section>
             </div>
 
             <div class="exercise calisthenics">
-                <div>
-                    Click when you are done with: <span id="pushUpReps" style="color:rgb(202, 92, 1)"></span> push ups
-                </div>
-                <img src="assets\images\push_up.jpg">
-                <button type="button" onclick="closeModal()"></button>
+                <section class="center">
+                    <div>
+                        Click when you are done with <span id="pushUpReps" class="target_reps"></span> push ups
+                    </div>
+                    <button type="button" onclick="closeModal()">Done</button>
+                </section>
+                <section class="center">
+                    <img src="assets\images\push_up.jpg">
+                </section>
             </div>
             <div class="exercise calisthenics">
-                <div>
-                    Click when you are done with: <span id="spidermanCrunchReps"style="color:rgb(202, 92, 1)"></span> spiderman crunches
-                </div>
-                <img src="assets\images\spiderman_crunch.png">
-                <button type="button" onclick="closeModal()"></button>
+                <section class="center">
+                    <div>
+                        Click when you are done with <span id="spidermanCrunchReps" class="target_reps"></span> spiderman crunches
+                    </div>
+                    <button type="button" onclick="closeModal()">Done</button>
+                </section>
+                <section class="center">
+                    <img src="assets\images\spiderman_crunch.png">
+                </section>
             </div>
         </div>
 
         <div id="listen_modal" class="modal_window">
             <!-- categories -->
-            <div class="category" onclick="showModalForCategory(this)">
+            <div class="category sports" onclick="showModalForCategory(this)">
                 <label>Sports</label>
                 <i class="fas fa-chevron-right"></i>
             </div>
@@ -127,10 +140,10 @@
 
             <!-- links -->
             <div class="category_link geography">
-                <a href="https://online.seterra.com/en/vgp/3003" target="_blank">U.S. States</a>
+                <a href="https://online.seterra.com/en/vgp/3003" target="_blank">(U.S.) States</a>
             </div>
             <div class="category_link geography">
-                <a href="https://online.seterra.com/en/vgp/3063" target="_blank">U.S. State Capitals</a>
+                <a href="https://online.seterra.com/en/vgp/3063" target="_blank">(U.S.) State Capitals</a>
             </div>
 
             <div class="category_link science">

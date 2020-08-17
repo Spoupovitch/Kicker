@@ -41,6 +41,10 @@
     grid-template-columns: repeat(2, 1fr);
 }
 
+.target_reps {
+    color: rgb(202, 92, 1);
+}
+
 #get_up_modal {
     display: none;
 }

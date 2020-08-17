@@ -110,3 +110,13 @@ body {
 #clock_tooltip:hover {
     cursor: default;
 }
+
+/* misc styling */
+.center {
+    justify-items: center;
+    justify-content: space-around;
+}
+
+a {
+    text-decoration-line: none;
+}
