@@ -17,7 +17,7 @@ function showModal(id) {
     document.getElementById(id + '_modal').style.display='grid';
 
     // display modal background tint
-    document.querySelector('.modal').style.display='grid';
+    document.getElementById('modal').style.display='grid';
 }
 
 // show the modal for the category selected, handle subsequent selection events
@@ -58,13 +58,13 @@ function showModalForCategory(elem) {
         default:
             closeModal();
             console.log('The given category is not matched to any logic.');
-            console.log('category encountered: ' + category);
+            console.log('Category encountered: ' + category);
     }
 }
 
 function closeModal() {
     // hide all modal_window elements
-    let modal_windows = document.querySelectorAll('.modal')[0].children;
+    let modal_windows = document.getElementById('modal').children;
     for (let i = 0; i < modal_windows.length; i++) {
         modal_windows[i].style.display = 'none';
         modal_windows[i].style.gridTemplateColumns = 'repeat(3, 1fr)';
@@ -73,12 +73,12 @@ function closeModal() {
         resetModalWindowDefaults(modal_windows[i]);
     }
     // hide modal background tint
-    document.querySelector('.modal').style.display = 'none';
+    document.getElementById('modal').style.display = 'none';
 }
 
 // allow closing of modal by clicking outside
 window.onclick = function(ev) {
-    if(ev.target == document.querySelector('.modal')) {
+    if(ev.target == document.getElementById('modal')) {
         closeModal();
     }
 }
