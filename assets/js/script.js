@@ -55,6 +55,9 @@ function showModalForCategory(elem) {
             showRandomExercise(category, siblings, parent);
             break;
 
+        case 'sudoku':
+            showCategoryLinks(category, parent);
+            break;
         default:
             closeModal();
             console.log('The given category is not matched to any logic.');
@@ -202,4 +205,22 @@ function showRandomExercise(category, siblings, parent) {
         // change grid styling for parent
         parent.style.gridTemplateColumns = '1fr';
     }, fadeTime);
+}
+
+// update completed activity list
+function updateCompletedList(elem) {
+    let x = elem.parentNode.parentNode;
+
+    switch(x.classList[0]) {
+        case 'exercise':
+            let updateSpan = document.getElementById('get_up_completed');
+            console.log(updateSpan.textContent.valueOf);
+            console.log(elem);
+            // updateSpan.textContent = +updateSpan.innerHTML + +;
+            break;
+        default:
+            console.log('Class not recognized, `completed` list not updated.');
+    }
+
+    closeModal();
 }
