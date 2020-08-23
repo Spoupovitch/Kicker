@@ -2,8 +2,10 @@ const fadeTime = 300;
 
 // values for exercises based on ability
 document.getElementById('curlReps').innerHTML = 15;
-document.getElementById('pushUpReps').innerHTML = 25;
+document.getElementById('pushUpReps').innerHTML = 20;
 document.getElementById('spidermanCrunchReps').innerHTML = 30;
+
+document.getElementById('boatPoseHold').innerHTML = 10;
 
 const notifSound1 = "assets/sounds/notification-sound.mp3";
 const notifSound2 = "assets/sounds/damn-son-whered-you-find-this.mp3";
@@ -209,9 +211,9 @@ function showRandomExercise(category, siblings, parent) {
 
 // update completed activity list
 function updateCompletedList(elem) {
-    let x = elem.parentNode.parentNode;
+    let grandParent = elem.parentNode.parentNode;
 
-    switch(x.classList[0]) {
+    switch(grandParent.classList[0]) {
         case 'exercise':
             let updateSpan = document.getElementById('get_up_completed');
             console.log(updateSpan.textContent.valueOf);

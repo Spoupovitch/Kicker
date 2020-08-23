@@ -39,7 +39,7 @@
 
     <!-- grid section -->
     <section class="grid_container">
-        <div class="bg1">
+        <div id="read" class="bg1">
             <label><h2>Read</h2></label>
             <i class="fas fa-book-reader"></i>
         </div>
@@ -47,7 +47,7 @@
             <label><h2>Get Up</h2></label>
             <i class="fas fa-running"></i>
         </div>
-        <div class="bg1">
+        <div id="learn" class="bg1">
             <label><h2>Learn</h2></label>
             <i class="fas fa-graduation-cap"></i>
         </div>
@@ -55,7 +55,7 @@
             <label><h2>Listen</h2></label>
             <i class="fas fa-volume-up"></i>
         </div>
-        <div class="bg2">
+        <div id="make" class="bg2">
             <label><h2>Make</h2></label>
             <i class="fas fa-tools"></i>
         </div>
@@ -67,7 +67,7 @@
             <label><h2>Solve</h2></label>
             <i class="fas fa-puzzle-piece"></i>
         </div>
-        <div class="bg2">
+        <div id="to_do" class="bg2">
             <label><h2>To Do</h2></label>
             <i class="fas fa-clipboard-list"></i>
         </div>    
@@ -132,6 +132,18 @@
                 </section>
                 <section class="center">
                     <img src="assets\images\spiderman_crunch.png">
+                </section>
+            </div>
+
+            <div class="exercise yoga">
+                <section class="center">
+                    <div>
+                        Click when you've held boat pose for <span id="boatPoseHold" class="target_reps"></span> seconds
+                    </div>
+                    <button type="button" onclick="updateCompletedList(this)">Done</button>
+                </section>
+                <section class="center">
+                    <img src="assets\images\boat_pose.jpg">
                 </section>
             </div>
         </div>

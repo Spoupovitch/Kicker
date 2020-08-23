@@ -45,7 +45,15 @@
     color: rgb(202, 92, 1);
 }
 
+#read_modal {
+    display: none;
+}
+
 #get_up_modal {
+    display: none;
+}
+
+#learn_modal {
     display: none;
 }
 
@@ -53,6 +61,18 @@
     display: none;
 }
 
+#make_modal {
+    display: none;
+}
+
 #memorize_modal {
+    display: none;
+}
+
+#solve_modal {
+    display: none;
+}
+
+#to_do_modal {
     display: none;
 }
