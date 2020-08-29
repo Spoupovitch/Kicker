@@ -174,7 +174,7 @@ function showCategoryLinks(category, parent) {
         for (let i = 0; i < categoryLinks.length; i++) {
             // show modal that matches the clicked element's category 
             if (category === categoryLinks[i].classList[1]) {
-                categoryLinks[i].style.display = 'grid';
+                categoryLinks[i].style.display = 'flex';
             }
         }
         for (let i = 0; i < categoryLinks.length; i++) {

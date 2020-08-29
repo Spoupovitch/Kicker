@@ -85,6 +85,10 @@
     color: seagreen;
 }
 
+.fa-external-link-alt {
+    transform: scale(.5) translateY(.25em);
+}
+
 .addRepsBtn {
     text-transform: uppercase;
     font-weight: bold;
