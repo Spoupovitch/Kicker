@@ -67,10 +67,11 @@ function showModalForCategory(elem) {
     }
 }
 
-function closeModal() {
-    // hide all modal_window elements
+function closeModal() { 
     let modal_windows = document.getElementById('modal').children;
+    
     for (let i = 0; i < modal_windows.length; i++) {
+        // hide all modal_window elements
         modal_windows[i].style.display = 'none';
         modal_windows[i].style.gridTemplateColumns = 'repeat(3, 1fr)';
 
@@ -168,14 +169,12 @@ function showCategoryLinks(category, parent) {
     let categoryLinks = parent.querySelectorAll('.category_link');
 
     setTimeout(function() {
-    for (let i = 0; i < categoryLinks.length; i++) {
-        // show modal that matches the clicked element's category 
-        if (category === categoryLinks[i].classList[1]) {
-            for (let i = 0; i < categoryLinks.length; i++) {
+        for (let i = 0; i < categoryLinks.length; i++) {
+            // show modal that matches the clicked element's category 
+            if (category === categoryLinks[i].classList[1]) {
                 categoryLinks[i].style.display = 'grid';
             }
         }
-    }
         for (let i = 0; i < categoryLinks.length; i++) {
             // show modal that matches the clicked element's category 
             if (category === categoryLinks[i].classList[1]) {
@@ -212,13 +211,13 @@ function showRandomExercise(category, siblings, parent) {
 // update completed activity list
 function updateCompletedList(elem) {
     let grandParent = elem.parentNode.parentNode;
-
+    let updateAmount = grandParent.querySelector('.target_reps').innerHTML;
+    
     switch(grandParent.classList[0]) {
         case 'exercise':
             let updateSpan = document.getElementById('get_up_completed');
-            console.log(updateSpan.textContent.valueOf);
-            console.log(elem);
-            // updateSpan.textContent = +updateSpan.innerHTML + +;
+            // grandParent.classList[1];
+            updateSpan.textContent = +updateSpan.innerHTML + +updateAmount;
             break;
         default:
             console.log('Class not recognized, `completed` list not updated.');
