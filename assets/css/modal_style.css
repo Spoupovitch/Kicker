@@ -82,6 +82,14 @@
 }
 
 .addRepsBtn {
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: .15em;
+
+    background-color: lightblue;
+    border: solid .01em skyblue;
+
+    margin-top: 3em;
     height: 3em;
     width: 12em;
 }
