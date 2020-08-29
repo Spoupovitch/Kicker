@@ -106,7 +106,7 @@
                     <h3>
                         Click when you are done with <span id="curlReps" class="target_reps"></span> curls
                     </h3>
-                    <button type="button" onclick="closeModal()">Done</button>
+                    <button class="addRepsBtn" type="button" onclick="closeModal()">Done</button>
                 </section>
                 <section class="center">
                     <img src="assets\images\curl.jpg">
@@ -119,7 +119,7 @@
                     <div>
                         Click when you are done with <span id="pushUpReps" class="target_reps"></span> push ups
                     </div>
-                    <button type="button" onclick="closeModal(this)">Done</button>
+                    <button class="addRepsBtn" type="button" onclick="closeModal(this)">Done</button>
                 </section>
                 <section class="center">
                     <img src="assets\images\push_up.jpg">
@@ -130,10 +130,21 @@
                     <div>
                         Click when you are done with <span id="spidermanCrunchReps" class="target_reps"></span> spiderman crunches
                     </div>
-                    <button type="button" onclick="closeModal(this)">Done</button>
+                    <button class="addRepsBtn" type="button" onclick="closeModal(this)">Done</button>
                 </section>
                 <section class="center">
                     <img src="assets\images\spiderman_crunch.png">
+                </section>
+            </div>
+            <div class="exercise calisthenics">
+                <section class="center">
+                    <div>
+                        Click when you are done with <span id="squatReps" class="target_reps"></span> squats
+                    </div>
+                    <button class="addRepsBtn" type="button" onclick="closeModal(this)">Done</button>
+                </section>
+                <section class="center">
+                    <img src="assets\images\squat.png">
                 </section>
             </div>
 
@@ -143,7 +154,7 @@
                     <div>
                         Click when you've held boat pose for <span id="boatPoseHold" class="target_reps"></span> seconds
                     </div>
-                    <button type="button" onclick="updateCompletedList(this)">Done</button>
+                    <button class="addRepsBtn" type="button" onclick="updateCompletedList(this)">Done</button>
                 </section>
                 <section class="center">
                     <img src="assets\images\boat_pose.jpg">

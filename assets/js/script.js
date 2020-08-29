@@ -2,8 +2,10 @@ const fadeTime = 300;
 
 // values for exercises based on ability
 document.getElementById('curlReps').innerHTML = 15;
-document.getElementById('pushUpReps').innerHTML = 20;
+
+document.getElementById('pushUpReps').innerHTML = 10;
 document.getElementById('spidermanCrunchReps').innerHTML = 30;
+document.getElementById('squatReps').innerHTML = 25;
 
 document.getElementById('boatPoseHold').innerHTML = 10;
 

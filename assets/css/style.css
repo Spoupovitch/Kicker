@@ -142,6 +142,7 @@ body {
 /* misc styling */
 .center {
     text-align: center;
+    align-self: center;
 }
 
 a {

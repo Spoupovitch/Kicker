@@ -76,3 +76,12 @@
 #to_do_modal {
     display: none;
 }
+
+.modal_window > a:visited {
+    text-decoration: none;
+}
+
+.addRepsBtn {
+    height: 3em;
+    width: 12em;
+}
