@@ -77,8 +77,12 @@
     display: none;
 }
 
-.modal_window > a:visited {
-    text-decoration: none;
+.modal_window > div > a {
+    color: inherit;
+    text-decoration-line: none;
+}
+.modal_window > div > a:hover {
+    color: seagreen;
 }
 
 .addRepsBtn {
