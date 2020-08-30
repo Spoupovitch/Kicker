@@ -85,21 +85,33 @@
 }
 
 /* list styling */
+#list_container {
+    width: 100%;
+}
+
 #to_do_list {
     list-style: none;
     padding: .5em;
+
+    height: 80%;
+    overflow: scroll;
+}
+
+#to_do_list > li {
+    font-size: .75em;
+    padding: 0 .5em 0 .5em;
 }
 
 #to_do_list > li:nth-child(even) {
-    background-color: rgba(119, 136, 153, 0.5);
+    background-color: rgba(119, 136, 153, 0.25);
 }
 #to_do_list > li:nth-child(odd) {
-    background-color: rgba(47, 79, 79, 0.5);
+    background-color: rgba(47, 79, 79, 0.25);
 }
 
 /* input styling */
 .user_input {
-    font-size: .5em;
+    font-size: .75em;
     background-color: inherit;
     padding: .2em;
     
