@@ -26,6 +26,7 @@
     height: 50%;
     font-size: 1.5em;
 }
+
 .category {
     transition: transform 2s, opacity .25s;
     display: inline;
@@ -41,10 +42,7 @@
     grid-template-columns: repeat(2, 1fr);
 }
 
-.target_reps {
-    color: rgb(202, 92, 1);
-}
-
+/* activity modal display defaults */
 #read_modal {
     display: none;
 }
@@ -77,6 +75,7 @@
     display: none;
 }
 
+/* link styling */
 .modal_window > div > a {
     color: inherit;
     text-decoration-line: none;
@@ -85,23 +84,69 @@
     color: seagreen;
 }
 
-.fa-external-link-alt {
-    transform: scale(.5) translateY(.25em);
+/* list styling */
+#to_do_list {
+    list-style: none;
+    padding: .5em;
 }
 
+#to_do_list > li:nth-child(even) {
+    background-color: rgba(119, 136, 153, 0.5);
+}
+#to_do_list > li:nth-child(odd) {
+    background-color: rgba(47, 79, 79, 0.5);
+}
+
+/* input styling */
 .user_input {
+    font-size: .5em;
+    background-color: inherit;
+    padding: .2em;
+    
+    height: 2em;
     width: 90%;
+    border: none;
+    border-bottom: solid dimgray .01em;
+    outline: none;
+}
+.user_input:focus {
+    border-bottom: solid limegreen .01em;
 }
 
+
+/* button styling */
 .addRepsBtn {
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: .15em;
-
+    
     background-color: lightblue;
     border: solid .01em skyblue;
-
+    
     margin-top: 3em;
     height: 3em;
     width: 12em;
+}
+
+.addToListBtn {
+    background-color: limegreen;
+    
+    height: 2em;
+    width: 3em;
+    border: solid dimgray .01em;
+    border-radius: 0;
+}
+.addToListBtn:focus {
+    height: 2em;
+    width: 3em;
+    border-radius: 0;
+}
+
+/* misc styling */
+.target_reps {
+    color: rgb(202, 92, 1);
+}
+
+.fa-external-link-alt {
+    transform: scale(.5) translateY(.25em);
 }
