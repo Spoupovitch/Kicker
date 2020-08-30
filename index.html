@@ -67,7 +67,7 @@
             <label><h2>Solve</h2></label>
             <i class="fas fa-puzzle-piece"></i>
         </div>
-        <div id="to_do" class="bg2">
+        <div id="to_do" class="bg2" onclick="showModal(id)">
             <label><h2>To Do</h2></label>
             <i class="fas fa-clipboard-list"></i>
         </div>    
@@ -204,7 +204,7 @@
                 <a href="https://online.seterra.com/en-an/vgp/3829" target="_blank">Periodic Table<i class="fas fa-external-link-alt"></i></a>
             </div>
         </div>
-        
+
         <div id="solve_modal" class="modal_window">
             <!-- categories -->
             <div class="category sudoku" onclick="showModalForCategory(this)">
@@ -219,6 +219,22 @@
             </div>
             <div class="category_link sudoku">
                 <a href="http://www.artbylogic.com/puzzles/numSlider/numberShuffle.htm" target="_blank">Number Slider<i class="fas fa-external-link-alt"></i></a>
+            </div>
+        </div>
+
+        <div id="to_do_modal" class="modal_window">
+            <!-- input task -->
+            <div>
+                <form>
+                    <label>What needs done?</label>
+                    <input class="user_input" type="text" maxlength="40">
+                    </input>
+                    <button class="addToListBtn">+</button>
+                </form>
+            </div>
+            <!-- uncompleted -->
+            <div>
+                To Do:
             </div>
         </div>
     </section>

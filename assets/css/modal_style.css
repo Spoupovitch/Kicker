@@ -89,6 +89,10 @@
     transform: scale(.5) translateY(.25em);
 }
 
+.user_input {
+    width: 90%;
+}
+
 .addRepsBtn {
     text-transform: uppercase;
     font-weight: bold;

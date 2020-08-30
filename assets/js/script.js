@@ -19,6 +19,10 @@ ding.volume = .25;
 function showModal(id) {
     // id for selected activity's modal = (id + '_modal')
     document.getElementById(id + '_modal').style.display='grid';
+    
+    if (id == 'to_do') {
+        document.getElementById(id + '_modal').style.gridTemplateColumns='repeat(2, 1fr)';
+    }
 
     // display modal background tint
     document.getElementById('modal').style.display='grid';
