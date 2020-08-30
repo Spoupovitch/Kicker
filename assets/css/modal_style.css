@@ -85,16 +85,15 @@
 }
 
 /* list styling */
-#list_container {
+#list_container {    
+    height: 100%;
     width: 100%;
+    overflow: auto;
 }
 
 #to_do_list {
     list-style: none;
     padding: .5em;
-
-    height: 80%;
-    overflow: scroll;
 }
 
 #to_do_list > li {
@@ -114,6 +113,7 @@
     font-size: .75em;
     background-color: inherit;
     padding: .2em;
+    padding-bottom: 0;
     
     height: 2em;
     width: 90%;
@@ -147,11 +147,15 @@
     width: 3em;
     border: solid dimgray .01em;
     border-radius: 0;
+    outline: none;
+
+    /* transition: transform .2s; */
 }
 .addToListBtn:focus {
-    height: 2em;
-    width: 3em;
     border-radius: 0;
+}
+.addToListBtn:active {
+    transform: translateY(.05em);
 }
 
 /* misc styling */
