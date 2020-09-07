@@ -88,12 +88,15 @@
 #list_container {    
     height: 100%;
     width: 100%;
-    overflow: auto;
+    
 }
 
 #to_do_list {
     list-style: none;
     padding: .5em;
+    
+    overflow: auto;
+    max-height: 80%;
 }
 
 #to_do_list > li {

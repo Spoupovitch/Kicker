@@ -231,3 +231,7 @@ function updateCompletedList(elem) {
 
     closeModal();
 }
+
+function addTaskToList(elem) {
+    
+}
