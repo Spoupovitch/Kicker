@@ -233,5 +233,33 @@ function updateCompletedList(elem) {
 }
 
 function addTaskToList(elem) {
-    
+    let parent = elem.parentNode;
+    let inputBar = parent.children[1];
+    console.log(inputBar);
+    let task = inputBar.value;
+
+    if (isEmpty(task)) {
+        alert("The damn bar is empty, stupid.");
+        return;
+    }
+
+    console.log(task);
+    $.ajax({
+        url: 'assets/sql/db_utils.php',
+        type: 'POST',
+        data: {method: 'addTask', task: task},
+        success: (res) => {
+            console.log("Result: " + JSON.stringify(res));
+        },
+        error: (err) => {
+            console.log("Failed at AJAX... " + JSON.stringify(err));
+        }
+    });
+    inputBar.value = '';
+}
+
+function isEmpty(str) {
+    return (!str
+        || str.length == 0 
+    );
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -7,70 +8,78 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@400&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap"/>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous"/>
+    
     <link rel="stylesheet" href="assets/css/style.css"/>
     <link rel="stylesheet" href="assets/css/modal_style.css"/>
 
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
     <title>Kicker - Stop it.</title>
 </head>
-<body>
-    <!-- sidebar section -->
-    <section id="sidebar">
-        <div id="completed_list">
-            <label><h2>Activities completed:</h2></label>
-            <div>
-                <label><h3>Get Up</h3></label>
-                <span id="get_up_completed"></span>
-            </div>
-            <hr/>
-            <div>
-                <label><h3>Listen</h3></label>
-                <span id="listen_completed"></span>
-            </div>
-            <hr/>
-            <div>
-                <label><h3>Memorize</h3></label>
-                <span id="memorize_completed"></span>
-            </div>
-            <hr/>
-        </div>
-    </section>
 
-    <!-- grid section -->
-    <section class="grid_container">
-        <div id="read" class="bg1">
-            <label><h2>Read</h2></label>
-            <i class="fas fa-book-reader"></i>
-        </div>
-        <div id="get_up" class="bg2" onclick="showModal(id)">
-            <label><h2>Get Up</h2></label>
-            <i class="fas fa-running"></i>
-        </div>
-        <div id="learn" class="bg1">
-            <label><h2>Learn</h2></label>
-            <i class="fas fa-graduation-cap"></i>
-        </div>
-        <div id="listen" class="bg1" onclick="showModal(id)">
-            <label><h2>Listen</h2></label>
-            <i class="fas fa-volume-up"></i>
-        </div>
-        <div id="make" class="bg2">
-            <label><h2>Make</h2></label>
-            <i class="fas fa-tools"></i>
-        </div>
-        <div id="memorize" class="bg1" onclick="showModal(id)">
-            <label><h2>Memorize</h2></label>
-            <i class="far fa-comment-dots"></i>
-        </div>
-        <div id="solve" class="bg1" onclick="showModal(id)">
-            <label><h2>Solve</h2></label>
-            <i class="fas fa-puzzle-piece"></i>
-        </div>
-        <div id="to_do" class="bg2" onclick="showModal(id)">
-            <label><h2>To Do</h2></label>
-            <i class="fas fa-clipboard-list"></i>
-        </div>    
+<body>
+    <section id="main_container">
+
+        <!-- sidebar section -->
+        <section id="sidebar">
+            <div id="completed_list">
+                <label><h2>Activities completed:</h2></label>
+                <div>
+                    <label><h3>Get Up</h3></label>
+                    <span id="get_up_completed"></span>
+                </div>
+                <hr/>
+                <div>
+                    <label><h3>Listen</h3></label>
+                    <span id="listen_completed"></span>
+                </div>
+                <hr/>
+                <div>
+                    <label><h3>Memorize</h3></label>
+                    <span id="memorize_completed"></span>
+                </div>
+                <hr/>
+            </div>
+        </section>
+
+        <!-- grid section -->
+        <section class="grid_container">
+            <div id="read" class="bg1">
+                <label><h2>Read</h2></label>
+                <i class="fas fa-book-reader"></i>
+            </div>
+            <div id="get_up" class="bg2" onclick="showModal(id)">
+                <label><h2>Get Up</h2></label>
+                <i class="fas fa-running"></i>
+            </div>
+            <div id="learn" class="bg1">
+                <label><h2>Learn</h2></label>
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div id="listen" class="bg1" onclick="showModal(id)">
+                <label><h2>Listen</h2></label>
+                <i class="fas fa-volume-up"></i>
+            </div>
+            <div id="make" class="bg2">
+                <label><h2>Make</h2></label>
+                <i class="fas fa-tools"></i>
+            </div>
+            <div id="memorize" class="bg1" onclick="showModal(id)">
+                <label><h2>Memorize</h2></label>
+                <i class="far fa-comment-dots"></i>
+            </div>
+            <div id="solve" class="bg1" onclick="showModal(id)">
+                <label><h2>Solve</h2></label>
+                <i class="fas fa-puzzle-piece"></i>
+            </div>
+            <div id="to_do" class="bg2" onclick="showModal(id)">
+                <label><h2>To Do</h2></label>
+                <i class="fas fa-clipboard-list"></i>
+            </div>    
+        </section>
+
     </section>
 
     <!-- modals section -->
@@ -227,7 +236,7 @@
             <div>
                 <form>
                     <label>What needs done?</label>
-                    <input class="user_input" type="text" maxlength="60"><button class="addToListBtn" onclick="addTaskToList(this)"><i class="fas fa-plus"></i></button></input>
+                    <input class="user_input" type="text" maxlength="60" placeholder="..."><button class="addToListBtn" type="button" onclick="addTaskToList(this)"><i class="fas fa-plus"></i></button></input>
                 </form>
             </div>
             <!-- uncompleted items -->
@@ -276,4 +285,5 @@
 
     <script type="text/javascript" src="assets/js/script.js"></script>
 </body>
+
 </html>
