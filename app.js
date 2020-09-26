@@ -1,46 +1,21 @@
 const express = require('express');
-const mysql = require('mysql');
+const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
+const db = require("./dbConnection");
 
-dotenv.config({path: './.env'});
+const dbRoutes = require("./routes/dbRoutes");
 
+dotenv.config({path: './config/.env'});
 const app = express();
-const PORT = '3030';
 
-const db = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DATABASE
-});
+app.use(bodyParser.json());
 
-db.connect( (err) => {
-    if (err) {
-        console.log(err);
-    }
-    else {
-        console.log("MySQL Connected...");
-    }
-});
-
-app.listen(process.env.APP_PORT, () => {
-    console.log("Server started on port " + process.env.APP_PORT);
-});
-
-app.get("/", (req, res) => {
-        res.send("<h1>Fuck You!</h1>");
-});
+app.use("/", dbRoutes);
 
 app.post("/addTask", (req, res) => {
     res.send("POST to table");
 });
 
-db.connect( (err) => {
-    function callDb(sql) {
-        sql = "SELECT * FROM * WHERE *";
-        db.query(sql, function (err, res) {
-            if (err) throw err;
-            console.log("Result: " + res);
-        });
-    }
+app.listen(process.env.APP_PORT, () => {
+    console.log("\tServer started on port " + process.env.APP_PORT);
 });
