@@ -7,8 +7,13 @@ Help form desired habits.
 
 ## Tech Stack
 HTML
+
 CSS
+
 JavaScript
+
 php
+
 WAMP server
+
 MySQL
