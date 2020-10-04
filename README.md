@@ -12,6 +12,8 @@ CSS
 
 JavaScript
 
+Node.js
+
 XAMPP server
 
 MySQL
