@@ -12,8 +12,6 @@ CSS
 
 JavaScript
 
-php
-
-WAMP server
+XAMPP server
 
 MySQL
