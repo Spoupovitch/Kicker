@@ -11,11 +11,13 @@ const db = mysql.createConnection({
 });
 
 db.connect( (err) => {
-    if (err) {
-        console.log(err);
+    if (!err) {
+        console.log(process.env.INFO);
+        console.log("\tConnected to database...");
     }
     else {
-        console.log("\tMySQL connected...");
+        console.log(process.env.ERROR);
+        console.log("\tFailed to connect to database... " + err);
     }
 });
 

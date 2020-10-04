@@ -1,4 +1,5 @@
 *.log
 npm-debug.log*
 node_modules
-.env
+config/.env
+views/partials/modals

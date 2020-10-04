@@ -14,11 +14,23 @@ router.get("/create", (req, res) => {
     queryDb(req, res, query, 'CREATE');
 });
 
+// show values in table
 router.get("/read", (req, res) => {
     let query = 
         "SELECT *" +
         "FROM to_do_list;";
     queryDb(req, res, query, 'READ');
+});
+
+// TODO - troubleshoot db put/get
+// add task to table
+router.use("/insert", (req, res) => {
+    let create_dt = JSON.stringify(new Date());
+    let query = 
+        "INSERT INTO test.to_do_list" +
+            "(`task_desc`, `task_create_dt`)" +
+            "values ('fuck_you5', " + create_dt + ");";
+    queryDb(req, res, query, 'INSERT');
 });
 
 // utility function for querying db and error handling

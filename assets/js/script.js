@@ -9,8 +9,8 @@ document.getElementById('squatReps').innerHTML = 25;
 
 document.getElementById('boatPoseHold').innerHTML = 10;
 
-const notifSound1 = "assets/sounds/notification-sound.mp3";
-const notifSound2 = "assets/sounds/damn-son-whered-you-find-this.mp3";
+const notifSound1 = "/sounds/notification-sound.mp3";
+const notifSound2 = "/sounds/damn-son-whered-you-find-this.mp3";
 // break reminder notification sound
 const ding = new Audio(notifSound1);
 ding.volume = .25;
@@ -235,7 +235,6 @@ function updateCompletedList(elem) {
 function addTaskToList(elem) {
     let parent = elem.parentNode;
     let inputBar = parent.children[1];
-    console.log(inputBar);
     let task = inputBar.value;
 
     if (isEmpty(task)) {
@@ -243,11 +242,10 @@ function addTaskToList(elem) {
         return;
     }
 
-    console.log(task);
     $.ajax({
-        url: 'assets/sql/db_utils.php',
+        url: '/db/insert',
         type: 'POST',
-        data: {method: 'addTask', task: task},
+        data: task,
         success: (res) => {
             console.log("Result: " + JSON.stringify(res));
         },

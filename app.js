@@ -1,21 +1,33 @@
-const express = require('express');
-const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
-const db = require("./dbConnection");
+const express = require('express');
+var exphbs = require('express-handlebars');
+const bodyParser = require('body-parser');
+const path = require('path');
+var app = express();
 
-const dbRoutes = require("./routes/dbRoutes");
-
+// Setup config
 dotenv.config({path: './config/.env'});
-const app = express();
 
 app.use(bodyParser.json());
 
-app.use("/", dbRoutes);
+// Routes
+app.use("/", require("./routes/index"));
+app.use("/db", require("./routes/dbRoutes"));
+
+// Static 'assets' folder
+app.use(express.static(path.join(__dirname, 'assets')));
+
+// Template engine
+app.engine('.hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));
+app.set('view engine', '.hbs');
 
 app.post("/addTask", (req, res) => {
     res.send("POST to table");
+    console.log(req);
+    console.log(res);
 });
 
 app.listen(process.env.APP_PORT, () => {
+    console.log(process.env.INFO);
     console.log("\tServer started on port " + process.env.APP_PORT);
 });
