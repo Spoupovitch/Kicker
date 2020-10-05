@@ -237,22 +237,24 @@ function addTaskToList(elem) {
     let inputBar = parent.children[1];
     let task = inputBar.value;
 
+    // user prompt
     if (isEmpty(task)) {
         alert("The damn bar is empty, stupid.");
         return;
     }
-
-    $.ajax({
-        url: '/db/insert',
-        type: 'POST',
-        data: task,
-        success: (res) => {
-            console.log("Result: " + JSON.stringify(res));
-        },
-        error: (err) => {
-            console.log("Failed at AJAX... " + JSON.stringify(err));
-        }
-    });
+console.log("task JSON: " + JSON.stringify(task));
+    // $.ajax({
+    //     url: '/db/insert',
+    //     type: 'POST',
+    //     data: JSON.stringify(task),
+    //     success: (res) => {
+    //         console.log("Result: " + JSON.stringify(res));
+    //     },
+    //     error: (err) => {
+    //         console.log("Failed at AJAX... " + JSON.stringify(err));
+    //     }
+    // });
+    
     inputBar.value = '';
 }
 

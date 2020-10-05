@@ -1,14 +1,16 @@
 const express = require("express");
-const router = express.Router();
+const dbController = require('../controllers/db');
 
 const db = require("../dbConnection");
+
+const router = express.Router();
 
 // create table for to do tasks
 router.get("/create", (req, res) => {
     let query = 
         "CREATE TABLE IF NOT EXISTS to_do_list(" +
         "task_id INT AUTO_INCREMENT PRIMARY KEY," +
-        "task_desc VARCHAR(25) NOT NULL UNIQUE," +
+        "task_desc VARCHAR(25) NOT NULL," +
         "task_create_dt DATE" +
     ");";
     queryDb(req, res, query, 'CREATE');
@@ -24,13 +26,21 @@ router.get("/read", (req, res) => {
 
 // TODO - troubleshoot db put/get
 // add task to table
-router.use("/insert", (req, res) => {
-    let create_dt = JSON.stringify(new Date());
+router.post("/insert", dbController.insert)//, (req, res) => {
+    // let create_dt = JSON.stringify(new Date());
+    // console.log("task received: " + JSON.stringify(req.body));
+    // let query = 
+    //     "INSERT INTO test.to_do_list" +
+    //     "(`task_desc`, `task_create_dt`)" +
+    //     "values ('fuck_you10', " + create_dt + ");";
+    // queryDb(req, res, query, 'INSERT');
+// });
+
+
+router.post("/drop", (req, res) => {
     let query = 
-        "INSERT INTO test.to_do_list" +
-            "(`task_desc`, `task_create_dt`)" +
-            "values ('fuck_you5', " + create_dt + ");";
-    queryDb(req, res, query, 'INSERT');
+        "DROP TABLE to_do_list;";
+    queryDb(req, res, query, 'DROP');
 });
 
 // utility function for querying db and error handling
@@ -43,7 +53,6 @@ function queryDb(req, res, query, command) {
             return;
         }
         logDebug('INFO', command, err);
-        res.send(rows);
     });
 }
 

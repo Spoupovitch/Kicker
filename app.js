@@ -12,10 +12,15 @@ app.use(bodyParser.json());
 
 // Routes
 app.use("/", require("./routes/index"));
-app.use("/db", require("./routes/dbRoutes"));
+app.use("/db", require("./routes/db"));
 
 // Static 'assets' folder
 app.use(express.static(path.join(__dirname, 'assets')));
+
+// Parser for URL-encoded bodies from forms
+app.use(express.urlencoded({extended: false}));
+// Parser for JSON bodies from API client
+app.use(express.json());
 
 // Template engine
 app.engine('.hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));
@@ -29,5 +34,5 @@ app.post("/addTask", (req, res) => {
 
 app.listen(process.env.APP_PORT, () => {
     console.log(process.env.INFO);
-    console.log("\tServer started on port " + process.env.APP_PORT);
+    console.log(`\tServer started on port ${process.env.APP_PORT}`);
 });
