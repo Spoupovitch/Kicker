@@ -1,0 +1,85 @@
+<div id="get_up_modal" class="modal_window">
+    <!-- categories -->
+    <div class="category weight" onclick="showModalForCategory(this)">
+        <label>Weights</label>
+        <i class="fas fa-chevron-right"></i>
+    </div>
+    <div class="category calisthenics" onclick="showModalForCategory(this)">
+        <label>Calisthenics</label>
+        <i class="fas fa-chevron-right"></i>
+    </div>
+    <div class="category cardio" onclick="showModalForCategory(this)">
+        <label>Cardio</label>
+        <i class="fas fa-chevron-right"></i>
+    </div>
+    <div class="category yoga" onclick="showModalForCategory(this)">
+        <label>Yoga</label>
+        <i class="fas fa-chevron-right"></i>
+    </div>
+    <div class="category random" onclick="showModalForCategory(this)">
+        <label>Random</label>
+        <i class="fas fa-chevron-right"></i>
+    </div>
+
+    <!-- links -->
+    <!-- weight -->
+    <div class="exercise weight">
+        <section class="center">
+            <h3>
+                Click when you are done with <span id="curlReps" class="target_reps"></span> curls
+            </h3>
+            <button class="addRepsBtn" type="button" onclick="closeModal()">Done</button>
+        </section>
+        <section class="center">
+            <img src="\images\curl.jpg">
+        </section>
+    </div>
+
+    <!-- calisthenics -->
+    <div class="exercise calisthenics">
+        <section class="center">
+            <div>
+                Click when you are done with <span id="pushUpReps" class="target_reps"></span> push ups
+            </div>
+            <button class="addRepsBtn" type="button" onclick="closeModal(this)">Done</button>
+        </section>
+        <section class="center">
+            <img src="\images\push_up.jpg">
+        </section>
+    </div>
+    <div class="exercise calisthenics">
+        <section class="center">
+            <div>
+                Click when you are done with <span id="spidermanCrunchReps" class="target_reps"></span> spiderman crunches
+            </div>
+            <button class="addRepsBtn" type="button" onclick="closeModal(this)">Done</button>
+        </section>
+        <section class="center">
+            <img src="\images\spiderman_crunch.png">
+        </section>
+    </div>
+    <div class="exercise calisthenics">
+        <section class="center">
+            <div>
+                Click when you are done with <span id="squatReps" class="target_reps"></span> squats
+            </div>
+            <button class="addRepsBtn" type="button" onclick="closeModal(this)">Done</button>
+        </section>
+        <section class="center">
+            <img src="\images\squat.png">
+        </section>
+    </div>
+
+    <!-- yoga -->
+    <div class="exercise yoga">
+        <section class="center">
+            <div>
+                Click when you've held boat pose for <span id="boatPoseHold" class="target_reps"></span> seconds
+            </div>
+            <button class="addRepsBtn" type="button" onclick="updateCompletedList(this)">Done</button>
+        </section>
+        <section class="center">
+            <img src="\images\boat_pose.jpg">
+        </section>
+    </div>
+</div>
