@@ -4,8 +4,9 @@ const fadeTime = 300;
 document.getElementById('curlReps').innerHTML = 15;
 
 document.getElementById('pushUpReps').innerHTML = 10;
-document.getElementById('spidermanCrunchReps').innerHTML = 30;
-document.getElementById('squatReps').innerHTML = 25;
+document.getElementById('spidermanCrunchReps').innerHTML = 10;
+document.getElementById('squatReps').innerHTML = 15;
+document.getElementById('russianTwistReps').innerHTML = 10;
 
 document.getElementById('boatPoseHold').innerHTML = 10;
 
@@ -88,7 +89,7 @@ function closeModal() {
     document.getElementById('modal').style.display = 'none';
 }
 
-// allow closing of modal by clicking outside
+// allow closing of modal by clicking outside of it
 window.onclick = function(ev) {
     if(ev.target == document.getElementById('modal')) {
         closeModal();
@@ -203,7 +204,6 @@ function showRandomExercise(category, siblings, parent) {
     }
     // choose a random exercise to display
     let randomIdx = Math.floor(Math.random() * exercises.length);
-    
     setTimeout(function() {
         exercises[randomIdx].style.display = 'grid';
         exercises[randomIdx].style.transform = 'translateX(0em)';
@@ -237,24 +237,23 @@ function addTaskToList(elem) {
     let inputBar = parent.children[1];
     let task = inputBar.value;
 
-    // user prompt
+    // user prompt for empty task input
     if (isEmpty(task)) {
         alert("The damn bar is empty, stupid.");
         return;
     }
-console.log("task JSON: " + JSON.stringify(task));
-    // $.ajax({
-    //     url: '/db/insert',
-    //     type: 'POST',
-    //     data: JSON.stringify(task),
-    //     success: (res) => {
-    //         console.log("Result: " + JSON.stringify(res));
-    //     },
-    //     error: (err) => {
-    //         console.log("Failed at AJAX... " + JSON.stringify(err));
-    //     }
-    // });
-    
+
+    $.ajax({
+        url: '/db/insert',
+        type: 'POST',
+        data: JSON.stringify(task),
+        success: (res) => {
+            console.log("Result: " + JSON.stringify(res));
+        },
+        error: (err) => {
+            console.log("Failed at AJAX... " + JSON.stringify(err));
+        }
+    });
     inputBar.value = '';
 }
 
