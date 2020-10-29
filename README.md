@@ -6,7 +6,7 @@ Help form desired habits.
 <hr/>
 
 ## Tech Stack
-HTML
+HTML (Handlebars)
 
 CSS
 
