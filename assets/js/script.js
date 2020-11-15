@@ -54,6 +54,8 @@ function showModalForCategory(elem) {
         case 'geography':
         case 'science':
         case 'history':
+        case 'language':
+        case 'music':
             showCategoryLinks(category, parent);
             break;
 
