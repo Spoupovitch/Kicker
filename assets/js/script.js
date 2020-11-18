@@ -63,9 +63,15 @@ function showModalForCategory(elem) {
 
         case 'calisthenics':
         case 'cardio':
-        case 'weight':
+        case 'weights':
         case 'yoga':
             showRandomExercise(category, siblings, parent);
+            break;
+
+        case 'random':
+            let exercises = ['calisthenics', 'cardio', 'weights', 'yoga'];
+            let randomIdx = Math.floor(Math.random() * exercises.length);
+            showRandomExercise(exercises[randomIdx], siblings, parent);
             break;
 
         case 'sudoku':
