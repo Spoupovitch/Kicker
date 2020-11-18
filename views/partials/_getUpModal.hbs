@@ -1,15 +1,15 @@
 <div id="get_up_modal" class="modal_window">
     <!-- categories -->
-    <div class="category weight" onclick="showModalForCategory(this)">
-        <label>Weights</label>
-        <i class="fas fa-chevron-right"></i>
-    </div>
     <div class="category calisthenics" onclick="showModalForCategory(this)">
         <label>Calisthenics</label>
         <i class="fas fa-chevron-right"></i>
     </div>
     <div class="category cardio" onclick="showModalForCategory(this)">
         <label>Cardio</label>
+        <i class="fas fa-chevron-right"></i>
+    </div>
+    <div class="category weight" onclick="showModalForCategory(this)">
+        <label>Weights</label>
         <i class="fas fa-chevron-right"></i>
     </div>
     <div class="category yoga" onclick="showModalForCategory(this)">
@@ -22,19 +22,6 @@
     </div>
 
     <!-- links -->
-    <!-- weight -->
-    <div class="exercise weight">
-        <section class="center">
-            <h3>
-                Click when you are done with <span id="curlReps" class="target_reps"></span> curls
-            </h3>
-            <button class="addRepsBtn" type="button" onclick="closeModal()">Done</button>
-        </section>
-        <section class="center">
-            <img src="\images\curl.jpg">
-        </section>
-    </div>
-
     <!-- calisthenics -->
     <div class="exercise calisthenics">
         <section class="center">
@@ -80,6 +67,32 @@
             <img src="\images\russian_twist.png">
         </section>
     </div>
+    
+    <!-- cardio -->
+    <div class="exercise cardio">
+        <section class="center">
+            <div>
+                Click when you have walked <span id="walkDist" class="target_reps"></span> miles
+            </div>
+            <button class="addRepsBtn" type="button" onclick="closeModal()">Done</button>
+        </section>
+        <section class="center">
+            <img src="\images\walking.jpg">
+        </section>
+    </div>
+
+    <!-- weight -->
+    <div class="exercise weight">
+        <section class="center">
+            <div>
+                Click when you are done with <span id="curlReps" class="target_reps"></span> curls
+            </div>
+            <button class="addRepsBtn" type="button" onclick="closeModal()">Done</button>
+        </section>
+        <section class="center">
+            <img src="\images\curl.jpg">
+        </section>
+    </div>
 
     <!-- yoga -->
     <div class="exercise yoga">
@@ -93,4 +106,6 @@
             <img src="\images\boat_pose.jpg">
         </section>
     </div>
+    
+    <!-- random -->
 </div>
