@@ -84,6 +84,7 @@ function showModalForCategory(elem) {
     }
 }
 
+// allow closing of modal by clicking outside of it
 function closeModal() { 
     let modal_windows = document.getElementById('modal').children;
     
@@ -99,7 +100,6 @@ function closeModal() {
     document.getElementById('modal').style.display = 'none';
 }
 
-// allow closing of modal by clicking outside of it
 window.onclick = function(ev) {
     if(ev.target == document.getElementById('modal')) {
         closeModal();
