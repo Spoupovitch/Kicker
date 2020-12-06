@@ -274,45 +274,28 @@ function isEmpty(str) {
 }
 
 //update finance field values
-$("#salary").on('change', updateFields($("#salary").val()));
-
-function updateFields(salary) {
+function updateFields() {
+    let salary = $("#salary").val();
     let taxPerBrkt = getTaxPerBrkt(salary);
-    console.log(salary);
     let taxSum = 0;
+
     for (let i = 0; i < taxPerBrkt.length; ++i) {
         taxSum += taxPerBrkt[i];
     }
     let taxPct = taxSum / salary;
-
-    $("tax_amt").text(taxSum);
-    $("inc_tax").val(taxPct);
+    
+    $("#tax_amt").val(taxSum.toFixed(2));
+    $("#inc_tax").val(taxPct.toPrecision(2));
 }
 
 function getTaxPerBrkt(salary) {
     //tax bracket constants
-    const brkt6Tax = .35;
-    const brkt6Floor = 207351;
-
-    const brkt5Tax = .32;
-    const brkt5Ceil = brkt6Floor - 1;
-    const brkt5Floor = 163301;
-
-    const brkt4Tax = .24;
-    const brkt4Ceil = brkt5Floor - 1;
-    const brkt4Floor = 85526;
-
-    const brkt3Tax = .22;
-    const brkt3Ceil = brkt4Floor - 1;
-    const brkt3Floor = 40126;
-
-    const brkt2Tax = .12;
-    const brkt2Ceil = brkt3Floor - 1;
-    const brkt2Floor = 9876;
-
-    const brkt1Tax = .1;
-    const brkt1Ceil = brkt2Floor - 1;
-    const brkt1Floor = 0;
+    const brkt6Tax = .35, brkt6Floor = 207351;
+    const brkt5Tax = .32, brkt5Floor = 163301, brkt5Ceil = brkt6Floor - 1;
+    const brkt4Tax = .24, brkt4Floor = 85526, brkt4Ceil = brkt5Floor - 1;
+    const brkt3Tax = .22, brkt3Floor = 40126, brkt3Ceil = brkt4Floor - 1;
+    const brkt2Tax = .12, brkt2Floor = 9876, brkt2Ceil = brkt3Floor - 1;
+    const brkt1Tax = .1, brkt1Floor = 0, brkt1Ceil = brkt2Floor - 1;
 
     let arr = [];
 

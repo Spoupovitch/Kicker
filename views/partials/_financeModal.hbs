@@ -1,0 +1,21 @@
+<div id="finance_modal" class="modal_window">
+    <form id="tax_calc_form">
+        <fieldset class="taxCalcFieldset">
+            <label>Salary</label>
+            <br/>
+            <input id="salary" class="taxCalcField" type="text"/>
+        </fieldset>
+        
+        <button class="taxCalcBtn" type="button" onclick="updateFields(this)">Calculate</button>
+        
+        <fieldset class="taxCalcFieldset">
+            <label>Tax Amount</label>
+            <br/>
+            <input id="tax_amt" class="taxCalcField" type="text"/>
+            <hr/>
+            <label>Income Tax</label>
+            <br/>
+            <input id="inc_tax" class="taxCalcField" type="text"/>
+        </fieldset>
+    </form>
+</div>

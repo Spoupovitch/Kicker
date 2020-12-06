@@ -1,0 +1,28 @@
+.taxCalcBtn {
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: .15em;
+    
+    background-color: lightblue;
+    border: solid .01em skyblue;
+    
+    padding: .25;
+    margin: .25em;
+    height: 3em;
+    width: 12em;
+}
+
+.taxCalcFieldset {
+    padding: .25em;
+    margin: .25em;
+}
+
+#tax_calc_form {
+    display: flex;
+    flex-direction: column;
+
+    padding: .25em;
+    margin: .25em;
+
+    align-items: center;
+}
