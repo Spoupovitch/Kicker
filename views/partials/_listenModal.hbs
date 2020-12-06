@@ -1,13 +1,20 @@
 <div id="listen_modal" class="modal_window">
-    <!-- categories -->
-    <div class="category music" onclick="showModalForCategory(this)">
-        <label>Music</label>
-        <i class="fas fa-chevron-right"></i>
-    </div>
-
-    <!-- links -->
-    <!-- music -->
-    <div class="category_link music">
-        <a href="https://www.youtube.com/playlist?list=PLsicpayqoSpdsje5Un2LOT96HDB4Yjz4_" target="_blank"><span style="color: red;"><i class="fab fa-youtube"></i></span> Playlist<i class="fas fa-external-link-alt"></i></a>
+    <div>
+        <form id="tax_calc">
+            <fieldset>
+                <label>Salary</label>
+                <br/>
+                <input type="text" id="salary"/>
+            </fieldset>
+            <fieldset>
+                <label>Tax Amount</label>
+                <br/>
+                <input type="text" id="tax_amt" />
+                <hr/>
+                <label>Income Tax</label>
+                <br/>
+                <input type="text" id="inc_tax" />
+            </fieldset>
+        </form>
     </div>
 </div>

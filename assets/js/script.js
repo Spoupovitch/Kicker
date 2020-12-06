@@ -272,3 +272,82 @@ function isEmpty(str) {
         || str.length == 0 
     );
 }
+
+//update finance field values
+$("#salary").on('change', updateFields($("#salary").val()));
+
+function updateFields(salary) {
+    let taxPerBrkt = getTaxPerBrkt(salary);
+    console.log(salary);
+    let taxSum = 0;
+    for (let i = 0; i < taxPerBrkt.length; ++i) {
+        taxSum += taxPerBrkt[i];
+    }
+    let taxPct = taxSum / salary;
+
+    $("tax_amt").text(taxSum);
+    $("inc_tax").val(taxPct);
+}
+
+function getTaxPerBrkt(salary) {
+    //tax bracket constants
+    const brkt6Tax = .35;
+    const brkt6Floor = 207351;
+
+    const brkt5Tax = .32;
+    const brkt5Ceil = brkt6Floor - 1;
+    const brkt5Floor = 163301;
+
+    const brkt4Tax = .24;
+    const brkt4Ceil = brkt5Floor - 1;
+    const brkt4Floor = 85526;
+
+    const brkt3Tax = .22;
+    const brkt3Ceil = brkt4Floor - 1;
+    const brkt3Floor = 40126;
+
+    const brkt2Tax = .12;
+    const brkt2Ceil = brkt3Floor - 1;
+    const brkt2Floor = 9876;
+
+    const brkt1Tax = .1;
+    const brkt1Ceil = brkt2Floor - 1;
+    const brkt1Floor = 0;
+
+    let arr = [];
+
+    if (salary > brkt5Ceil) {
+        arr[0] = brkt1Ceil * brkt1Tax;
+        arr[1] = (brkt2Ceil - brkt2Floor) * brkt2Tax;
+        arr[2] = (brkt3Ceil - brkt3Floor) * brkt3Tax;
+        arr[3] = (brkt4Ceil - brkt4Floor) * brkt4Tax;
+        arr[4] = (brkt5Ceil - brkt5Floor) * brkt5Tax;
+        arr[5] = (salary - brkt6Floor) * brkt6Tax;
+    }
+    else if (salary > brkt4Ceil) {
+        arr[0] = brkt1Ceil * brkt1Tax;
+        arr[1] = (brkt2Ceil - brkt2Floor) * brkt2Tax;
+        arr[2] = (brkt3Ceil - brkt3Floor) * brkt3Tax;
+        arr[3] = (brkt4Ceil - brkt4Floor) * brkt4Tax;
+        arr[4] = (salary - brkt5Floor) * brkt5Tax;
+    }
+    else if (salary > brkt3Ceil) {
+        arr[0] = brkt1Ceil * brkt1Tax;
+        arr[1] = (brkt2Ceil - brkt2Floor) * brkt2Tax;
+        arr[2] = (brkt3Ceil - brkt3Floor) * brkt3Tax;
+        arr[3] = (salary - brkt4Floor) * brkt4Tax;
+    }
+    else if (salary > brkt2Ceil) {
+        arr[0] = brkt1Ceil * brkt1Tax;
+        arr[1] = (brkt2Ceil - brkt2Floor) * brkt2Tax;
+        arr[2] = (salary - brkt3Floor) * brkt3Tax;
+    }
+    else if (salary > brkt1Ceil) {
+        arr[0] = brkt1Ceil * brkt1Tax;
+        arr[1] = (salary - brkt2Floor) * brkt2Tax;
+    }
+    else {
+        arr[0] = salary * brkt1Tax;
+    }
+    return arr;
+}
