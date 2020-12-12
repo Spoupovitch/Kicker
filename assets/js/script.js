@@ -23,8 +23,12 @@ function showModal(id) {
     // id for selected activity's modal = (id + '_modal')
     document.getElementById(id + '_modal').style.display='grid';
     
+    // TODO - clean this up
     if (id == 'to_do') {
         document.getElementById(id + '_modal').style.gridTemplateColumns='repeat(2, 1fr)';
+    }
+    else if (id == 'finance') {
+        document.getElementById(id + '_modal').style.gridTemplateColumns='repeat(1, 1fr)';
     }
 
     // display modal background tint
@@ -278,18 +282,29 @@ function updateFields() {
     let salary = $("#salary").val();
     let taxPerBrkt = getTaxPerBrkt(salary);
     let taxSum = 0;
+    const HOUSING_PCT = .3;
+    const _401k_PCT = .2;
 
     for (let i = 0; i < taxPerBrkt.length; ++i) {
         taxSum += taxPerBrkt[i];
     }
-    let taxPct = taxSum / salary;
     
     $("#tax_amt").val(taxSum.toFixed(2));
-    $("#inc_tax").val(taxPct.toPrecision(2));
+    // income_tax = tax_amount / salary
+    $("#inc_tax").val( (taxSum / salary).toPrecision(2) );
+    // post-tax_income = salary - tax_amount
+    $("#inc_after_tax").val( (salary - taxSum).toFixed(2) );
+    // amount_for_401k = salary * pct_for_401k (401k is pre-tax)
+    $("#_401K_amt").val( (salary * _401k_PCT).toFixed(2) );
+    // amount_for_rent = (post-tax_income - amount_for_401k) * pct_for_rent
+    let rentAlltmnt = ($("#inc_after_tax").val() - $("#_401K_amt").val()) * HOUSING_PCT;
+    $("#rent_alltmnt").val(rentAlltmnt.toFixed(2));
+    // per_month_for_rent = amount_for_rent / 12
+    $("#rent_alltmnt_per_month").val( (rentAlltmnt / 12).toFixed(2) );
 }
 
 function getTaxPerBrkt(salary) {
-    //tax bracket constants
+    // tax bracket constants
     const brkt6Tax = .35, brkt6Floor = 207351;
     const brkt5Tax = .32, brkt5Floor = 163301, brkt5Ceil = brkt6Floor - 1;
     const brkt4Tax = .24, brkt4Floor = 85526, brkt4Ceil = brkt5Floor - 1;

@@ -5,24 +5,51 @@
     
     background-color: lightblue;
     border: solid .01em skyblue;
+    outline: none;
     
-    padding: .25;
-    margin: .25em;
+    margin: .5em;
     height: 3em;
     width: 12em;
 }
 
-.taxCalcFieldset {
+.taxCalcField {
+    padding: .2em .25em 1em .25em;
+}
+
+#input_fieldset {
     padding: .25em;
     margin: .25em;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+#output_fieldset {
+    padding: .25em;
+    margin: .25em;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+}
+
+input {
+    outline: none;
+}
+
+.taxCalcLabel {
+    padding: 1em .25em .2em .25em;
 }
 
 #tax_calc_form {
     display: flex;
-    flex-direction: column;
 
     padding: .25em;
     margin: .25em;
 
-    align-items: center;
+    align-content: space-between;
 }
