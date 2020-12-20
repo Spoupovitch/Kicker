@@ -1,71 +1,80 @@
 <div id="finance_modal" class="modal_window">
-    <form id="tax_calc_form" onsubmit="event.preventDefault();">
+    <!-- categories -->
+    <div class="category calculator" onclick="showModalForCategory(this)">
+        <label>Salary Calculator</label>
+        <i class="fas fa-chevron-right"></i>
+    </div>
+    
+    <!-- links -->
+    <!-- calculator -->
+    <div class="category_link calculator">
+        <form id="calc_form" onsubmit="event.preventDefault();">
         <fieldset id="input_fieldset">
             <table>
             <tr>
-                <td class="taxCalcLabel">
+                <td class="calcLabel">
                     <label>Salary</label>
                 </td>
             </tr>
             <tr>
-                <td class="taxCalcField">
+                <td class="calcField">
                     <input id="salary" type="text"/>
                 </td>
             </tr>
             </table>
-            <button class="taxCalcBtn" type="submit" onclick="updateFields(this)">Calculate</button>
+            <button class="calcBtn" type="submit" onclick="updateFields(this)">Calculate</button>
         </fieldset>
-        
-        
+
         <fieldset id="output_fieldset">
             <table>
             <tr>
-                <td class="taxCalcLabel">
+                <td class="calcLabel">
                     <label>Tax Amount</label>
                 </td>
-                <td class="taxCalcLabel">
+                <td class="calcLabel">
                     <label>Post-Tax Inc.</label>
                 </td>
-                <td class="taxCalcLabel">
+                <td class="calcLabel">
                     <label>Rent (yr)</label>
                 </td>
             </tr>
             <tr>
-                <td class="taxCalcField">
+                <td class="calcField">
                     <input id="tax_amt" type="text"/>
                 </td>
-                <td class="taxCalcField">
+                <td class="calcField">
                     <input id="inc_after_tax" type="text"/>
                 </td>
-                <td class="taxCalcField">
+                <td class="calcField">
                     <input id="rent_alltmnt" type="text"/>
                 </td>
             </tr>
 
             <tr>
-                <td class="taxCalcLabel">
+                <td class="calcLabel">
                     <label>Income Tax</label>
                 </td>
-                <td class="taxCalcLabel">
+                <td class="calcLabel">
                     <label>401k Amt (yr)</label>
                 </td>
-                <td class="taxCalcLabel">
+                <td class="calcLabel">
                     <label>Rent (mo)</label>
                 </td>
             </tr>
             <tr>
-                <td class="taxCalcField">
-                   <input id="inc_tax" type="text"/>
+                <td class="calcField">
+                    <input id="inc_tax" type="text"/>
                 </td>
-                <td class="taxCalcField">
+                <td class="calcField">
                     <input id="_401K_amt" type="text"/>
                 </td>
-                <td class="taxCalcField">
+                <td class="calcField">
                     <input id="rent_alltmnt_per_month" type="text"/>
                 </td>
             </tr>
             </table>
             
         </fieldset>
-    </form>
+        </form>
+    </div>
 </div>

@@ -1,4 +1,4 @@
-.taxCalcBtn {
+.calcBtn {
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: .15em;
@@ -12,8 +12,29 @@
     width: 12em;
 }
 
-.taxCalcField {
+#calc_form {
+    display: flex;
+
+    padding: .25em;
+    margin: .25em;
+
+    align-content: space-between;
+}
+
+.calcField {
     padding: .2em .25em 1em .25em;
+}
+
+.calcLabel {
+    padding: 1em .25em .2em .25em;
+}
+
+#input_fieldset > input {
+    outline: none;
+}
+
+#output_fieldset > input {
+    outline: none;
 }
 
 #input_fieldset {
@@ -35,21 +56,4 @@
     flex-direction: row;
 
     justify-content: center;
-}
-
-input {
-    outline: none;
-}
-
-.taxCalcLabel {
-    padding: 1em .25em .2em .25em;
-}
-
-#tax_calc_form {
-    display: flex;
-
-    padding: .25em;
-    margin: .25em;
-
-    align-content: space-between;
 }

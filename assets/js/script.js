@@ -62,6 +62,8 @@ function showModalForCategory(elem) {
         case 'language':
         case 'music':
         case 'science':
+        case 'sudoku':
+        case 'calculator':
             showCategoryLinks(category, parent);
             break;
 
@@ -78,14 +80,54 @@ function showModalForCategory(elem) {
             showRandomExercise(exercises[randomIdx], siblings, parent);
             break;
 
-        case 'sudoku':
-            showCategoryLinks(category, parent);
-            break;
         default:
             closeModal();
             console.log('The given category is not matched to any logic.');
             console.log('Category encountered: ' + category);
     }
+}
+
+// show links for the selected category
+function showCategoryLinks(category, parent) {
+    let categoryLinks = parent.querySelectorAll('.category_link');
+
+    setTimeout(function() {
+        for (let i = 0; i < categoryLinks.length; i++) {
+            // show modal that matches the clicked element's category 
+            if (category === categoryLinks[i].classList[1]) {
+                categoryLinks[i].style.display = 'flex';
+            }
+        }
+        for (let i = 0; i < categoryLinks.length; i++) {
+            // show modal that matches the clicked element's category 
+            if (category === categoryLinks[i].classList[1]) {
+                categoryLinks[i].style.transform = 'translateX(0em)';
+                categoryLinks[i].style.opacity = '1';
+            }
+        }
+    }, fadeTime);
+}
+
+// show a random exercise from the selected category
+function showRandomExercise(category, siblings, parent) {
+    let exercises = [];
+    for (let i = 0; i < siblings.length; i++) {
+        // make a list of exercise elements for the category given
+        if (siblings[i].classList[0] == "exercise"
+        && siblings[i].classList[1] == category) {
+            exercises.push(siblings[i]);
+        }
+    }
+    // choose a random exercise to display
+    let randomIdx = Math.floor(Math.random() * exercises.length);
+    setTimeout(function() {
+        exercises[randomIdx].style.display = 'grid';
+        exercises[randomIdx].style.transform = 'translateX(0em)';
+        exercises[randomIdx].style.opacity = '1';
+
+        // change grid styling for parent
+        parent.style.gridTemplateColumns = '1fr';
+    }, fadeTime);
 }
 
 // allow closing of modal by clicking outside of it
@@ -185,49 +227,6 @@ function resetModalWindowDefaults(modal_window) {
     }
 }
 
-// show links for the selected category
-function showCategoryLinks(category, parent) {
-    let categoryLinks = parent.querySelectorAll('.category_link');
-
-    setTimeout(function() {
-        for (let i = 0; i < categoryLinks.length; i++) {
-            // show modal that matches the clicked element's category 
-            if (category === categoryLinks[i].classList[1]) {
-                categoryLinks[i].style.display = 'flex';
-            }
-        }
-        for (let i = 0; i < categoryLinks.length; i++) {
-            // show modal that matches the clicked element's category 
-            if (category === categoryLinks[i].classList[1]) {
-                categoryLinks[i].style.transform = 'translateX(0em)';
-                categoryLinks[i].style.opacity = '1';
-            }
-        }
-    }, fadeTime);
-}
-
-// show a random exercise from the selected category
-function showRandomExercise(category, siblings, parent) {
-    let exercises = [];
-    for (let i = 0; i < siblings.length; i++) {
-        // make a list of exercise elements for the category given
-        if (siblings[i].classList[0] == "exercise"
-        && siblings[i].classList[1] == category) {
-            exercises.push(siblings[i]);
-        }
-    }
-    // choose a random exercise to display
-    let randomIdx = Math.floor(Math.random() * exercises.length);
-    setTimeout(function() {
-        exercises[randomIdx].style.display = 'grid';
-        exercises[randomIdx].style.transform = 'translateX(0em)';
-        exercises[randomIdx].style.opacity = '1';
-
-        // change grid styling for parent
-        parent.style.gridTemplateColumns = '1fr';
-    }, fadeTime);
-}
-
 // update completed activity list
 function updateCompletedList(elem) {
     let grandParent = elem.parentNode.parentNode;
@@ -246,6 +245,7 @@ function updateCompletedList(elem) {
     closeModal();
 }
 
+// augment to do list
 function addTaskToList(elem) {
     let parent = elem.parentNode;
     let inputBar = parent.children[1];
@@ -271,13 +271,15 @@ function addTaskToList(elem) {
     inputBar.value = '';
 }
 
+// utility method returns true for misc empty string input
 function isEmpty(str) {
     return (!str
-        || str.length == 0 
+        || str.length == 0
+        || typeof(str) != String
     );
 }
 
-//update finance field values
+// update finance field values
 function updateFields() {
     let salary = $("#salary").val();
     let taxPerBrkt = getTaxPerBrkt(salary);
@@ -303,6 +305,7 @@ function updateFields() {
     $("#rent_alltmnt_per_month").val( (rentAlltmnt / 12).toFixed(2) );
 }
 
+// helper function, returns tax paid per bracket for tax year 2020
 function getTaxPerBrkt(salary) {
     // tax bracket constants
     const brkt6Tax = .35, brkt6Floor = 207351;
