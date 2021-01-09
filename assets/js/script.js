@@ -82,8 +82,7 @@ function showModalForCategory(elem) {
 
         default:
             closeModal();
-            console.log('The given category is not matched to any logic.');
-            console.log('Category encountered: ' + category);
+            console.log('The given category [' + category + '] is not recognized.');
     }
 }
 
