@@ -1,3 +1,4 @@
+// fade out for modal elements during wipe left
 const fadeTime = 300;
 
 // values for exercises based on ability
@@ -26,9 +27,6 @@ function showModal(id) {
     // TODO - clean this up
     if (id == 'to_do') {
         document.getElementById(id + '_modal').style.gridTemplateColumns='repeat(2, 1fr)';
-    }
-    else if (id == 'finance') {
-        document.getElementById(id + '_modal').style.gridTemplateColumns='repeat(1, 1fr)';
     }
 
     // display modal background tint
@@ -62,7 +60,7 @@ function showModalForCategory(elem) {
         case 'language':
         case 'music':
         case 'science':
-        case 'sudoku':
+        case 'num_puzzles':
         case 'calculator':
             showCategoryLinks(category, parent);
             break;
@@ -298,10 +296,10 @@ function updateFields() {
     // amount_for_401k = salary * pct_for_401k (401k is pre-tax)
     $("#_401K_amt").val( (salary * _401k_PCT).toFixed(2) );
     // amount_for_rent = (post-tax_income - amount_for_401k) * pct_for_rent
-    let rentAlltmnt = ($("#inc_after_tax").val() - $("#_401K_amt").val()) * HOUSING_PCT;
-    $("#rent_alltmnt").val(rentAlltmnt.toFixed(2));
+    let rentAlltmt = ( $("#inc_after_tax").val() - $("#_401K_amt").val() ) * HOUSING_PCT;
+    $("#rent_alltmt").val(rentAlltmt.toFixed(2));
     // per_month_for_rent = amount_for_rent / 12
-    $("#rent_alltmnt_per_month").val( (rentAlltmnt / 12).toFixed(2) );
+    $("#rent_alltmt_per_mth").val( (rentAlltmt / 12).toFixed(2) );
 }
 
 // helper function, returns tax paid per bracket for tax year 2020

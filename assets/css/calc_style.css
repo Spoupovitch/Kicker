@@ -25,16 +25,12 @@
     padding: .2em .25em 1em .25em;
 }
 
+.calcField > input{
+    outline: none;
+}
+
 .calcLabel {
     padding: 1em .25em .2em .25em;
-}
-
-#input_fieldset > input {
-    outline: none;
-}
-
-#output_fieldset > input {
-    outline: none;
 }
 
 #input_fieldset {
