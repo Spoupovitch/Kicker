@@ -8,8 +8,6 @@ var app = express();
 // Setup config
 dotenv.config({path: './config/.env'});
 
-app.use(bodyParser.json());
-
 // Routes
 app.use("/", require("./routes/index"));
 app.use("/db", require("./routes/db"));
@@ -21,6 +19,7 @@ app.use(express.static(path.join(__dirname, 'assets')));
 app.use(express.urlencoded({extended: false}));
 // Parser for JSON bodies from API client
 app.use(express.json());
+app.use(bodyParser.json());
 
 // Template engine
 app.engine('.hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));

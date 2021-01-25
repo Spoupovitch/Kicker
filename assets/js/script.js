@@ -27,6 +27,7 @@ function showModal(id) {
     // TODO - clean this up
     if (id == 'to_do') {
         document.getElementById(id + '_modal').style.gridTemplateColumns='repeat(2, 1fr)';
+        populateToDoList();
     }
 
     // display modal background tint
@@ -242,12 +243,37 @@ function updateCompletedList(elem) {
     closeModal();
 }
 
+// retrieve to do list tasks from db table, add tasks to list element
+function populateToDoList() {
+    // prevent adding duplicate tasks to screen
+    if (document.getElementById('to_do_list').children.length > 0) {
+        return;
+    }
+
+    $.ajax({
+        url: '/db/read',
+        type: 'POST',
+        success: function (res) {
+            res.forEach(task => {
+                let li = document.createElement("li");
+                li.setAttribute('id', task.task_id);
+                li.setAttribute('innerHTML', task.task_desc);
+                document.getElementById('to_do_list').appendChild(li);
+            });
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}
+
 // augment to do list
 function addTaskToList(elem) {
     let parent = elem.parentNode;
     let inputBar = parent.children[1];
     let task = inputBar.value;
-
+console.log(typeof(task));
+console.log(task);
     // user prompt for empty task input
     if (isEmpty(task)) {
         alert("The damn bar is empty, stupid.");
@@ -257,14 +283,16 @@ function addTaskToList(elem) {
     $.ajax({
         url: '/db/insert',
         type: 'POST',
-        data: JSON.stringify(task),
-        success: (res) => {
+        dataType: 'string',
+        data: task,
+        success: function(res) {
             console.log("Result: " + JSON.stringify(res));
         },
-        error: (err) => {
+        error: function(err) {
             console.log("Failed at AJAX... " + JSON.stringify(err));
         }
     });
+    // reset input
     inputBar.value = '';
 }
 
@@ -272,7 +300,7 @@ function addTaskToList(elem) {
 function isEmpty(str) {
     return (!str
         || str.length == 0
-        || typeof(str) != String
+        || typeof(str) != "string"
     );
 }
 

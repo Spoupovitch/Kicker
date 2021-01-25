@@ -15,26 +15,32 @@ router.get("/create", (req, res) => {
 });
 
 // show values in table
-router.get("/read", (req, res) => {
+router.post("/read", (req, res) => {
     let query = 
         "SELECT *" +
         "FROM to_do_list;";
-    db.queryDb(req, res, query, 'READ');
+    // db.queryDb(req, res, query, 'READ');
+    db.query(query, (err, rows, fields) => {
+        if (!err)
+            res.send(rows);
+        else
+            console.log(err);
+    })
 });
 
 // TODO - troubleshoot db put/get
 // add task to table
 router.post("/insert", (req, res) => {
     let create_dt = JSON.stringify(new Date);
-    console.log("task received: " + JSON.stringify(req));
+console.log("task received: " + req.params);
     let query = 
         "INSERT INTO test.to_do_list" +
         "(`task_desc`, `task_create_dt`)" +
-        "values ('fuck_you10', " + create_dt + ");";
+        "values (" + req + ", " + create_dt + ");";
     db.queryDb(req, res, query, 'INSERT');
 });
 
-
+// delete table
 router.post("/drop", (req, res) => {
     let query = 
         "DROP TABLE to_do_list;";

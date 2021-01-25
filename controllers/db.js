@@ -21,11 +21,9 @@ db.connect( (err) => {
     }
 });
 
-// utility function for querying db and error handling
+// utility function for querying db
 db.queryDb = ((req, res, query, command) => {
-    db.query(
-        query,
-    (err, rows, fields) => {
+    db.query(query, (err, rows, fields) => {
         if (err) {
             logDebug('ERROR', command, err);
             return;
