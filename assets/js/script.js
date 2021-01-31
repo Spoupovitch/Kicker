@@ -250,20 +250,22 @@ function populateToDoList() {
         return;
     }
 
-    $.ajax({
+    $.when($.ajax({
         url: '/db/read',
         type: 'POST',
         success: function (res) {
-            res.forEach(task => {
-                let li = document.createElement("li");
-                li.setAttribute('id', task.task_id);
-                li.setAttribute('innerHTML', task.task_desc);
-                document.getElementById('to_do_list').appendChild(li);
-            });
+            console.log(res);
         },
         error: function (err) {
             console.log(err);
         }
+    })).then(ans => {
+        ans.forEach(task => {
+            let li = document.createElement("li");
+            li.setAttribute('id', task.task_id);
+            li.setAttribute('innerHTML', task.task_desc);
+            document.getElementById('to_do_list').appendChild(li);
+        });
     });
 }
 
