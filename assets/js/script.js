@@ -250,7 +250,7 @@ function populateToDoList() {
         return;
     }
 
-    $.when($.ajax({
+    $.ajax({
         url: '/db/read',
         type: 'POST',
         success: function (res) {
@@ -259,7 +259,7 @@ function populateToDoList() {
         error: function (err) {
             console.log(err);
         }
-    })).then(ans => {
+    }).then(ans => {
         ans.forEach(task => {
             let li = document.createElement("li");
             li.setAttribute('id', task.task_id);
@@ -270,32 +270,35 @@ function populateToDoList() {
 }
 
 // augment to do list
-function addTaskToList(elem) {
-    let parent = elem.parentNode;
-    let inputBar = parent.children[1];
-    let task = inputBar.value;
-console.log(typeof(task));
-console.log(task);
+function addTaskToList() {
+    let inputBar = document.getElementById('task_input');
+    inputBar.value = $('task_input').val();
+console.log("type: " + typeof(inputBar.value));
+console.log("task to send: " + inputBar.value);
     // user prompt for empty task input
-    if (isEmpty(task)) {
+    if (isEmpty(inputBar.value)) {
         alert("The damn bar is empty, stupid.");
         return;
     }
+    let task = { 
+        'task': inputBar.value 
+    };
 
     $.ajax({
         url: '/db/insert',
         type: 'POST',
-        dataType: 'string',
-        data: task,
+        dataType: 'json',
+        body: JSON.stringify(task),
         success: function(res) {
             console.log("Result: " + JSON.stringify(res));
+            // reset input
+            inputBar.value = '';
         },
         error: function(err) {
             console.log("Failed at AJAX... " + JSON.stringify(err));
         }
     });
-    // reset input
-    inputBar.value = '';
+
 }
 
 // utility method returns true for misc empty string input
@@ -306,10 +309,16 @@ function isEmpty(str) {
     );
 }
 
+// 
+function updateFinanceModalFields() {
+    updateFederalTax();
+    updateStateTax();
+}
+
 // update finance field values
-function updateFields() {
+function updateFederalTax() {
     let salary = $("#salary").val();
-    let taxPerBrkt = getTaxPerBrkt(salary);
+    let taxPerBrkt = getFederalTaxPerBrkt(salary);
     let taxSum = 0;
     const HOUSING_PCT = .3;
     const _401k_PCT = .2;
@@ -332,14 +341,19 @@ function updateFields() {
     $("#rent_alltmt_per_mth").val( (rentAlltmt / 12).toFixed(2) );
 }
 
-// helper function, returns tax paid per bracket for tax year 2020
-function getTaxPerBrkt(salary) {
-    // tax bracket constants
-    const brkt6Tax = .35, brkt6Floor = 207351;
-    const brkt5Tax = .32, brkt5Floor = 163301, brkt5Ceil = brkt6Floor - 1;
-    const brkt4Tax = .24, brkt4Floor = 85526, brkt4Ceil = brkt5Floor - 1;
-    const brkt3Tax = .22, brkt3Floor = 40126, brkt3Ceil = brkt4Floor - 1;
-    const brkt2Tax = .12, brkt2Floor = 9876, brkt2Ceil = brkt3Floor - 1;
+function updateStateTax() {
+    
+}
+
+// updated for 2021
+// returns tax paid per bracket for tax year 2020
+function getFederalTaxPerBrkt(salary) {
+    // update only ceiling0, where ceiling0 = floor1 - 1
+    const brkt6Tax = .35, brkt6Floor = 209426;
+    const brkt5Tax = .32, brkt5Floor = 164926, brkt5Ceil = brkt6Floor - 1;
+    const brkt4Tax = .24, brkt4Floor = 86376, brkt4Ceil = brkt5Floor - 1;
+    const brkt3Tax = .22, brkt3Floor = 40526, brkt3Ceil = brkt4Floor - 1;
+    const brkt2Tax = .12, brkt2Floor = 9951, brkt2Ceil = brkt3Floor - 1;
     const brkt1Tax = .1, brkt1Floor = 0, brkt1Ceil = brkt2Floor - 1;
 
     let arr = [];
