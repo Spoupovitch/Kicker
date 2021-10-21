@@ -2,7 +2,7 @@
   "name": "kicker",
   "version": "1.0.0",
   "description": "Self improvement site",
-  "main": "index.js",
+  "main": "routes/index.js",
   "scripts": {
     "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,10 +18,12 @@
   },
   "homepage": "https://github.com/Spoupovitch/Kicker#readme",
   "dependencies": {
-    "dotenv": "^8.2.0",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.6.0",
     "express": "^4.17.1",
-    "express-handlebars": "^5.1.0",
+    "express-handlebars": "^5.3.4",
+    "mongoose": "^5.13.11",
     "mysql": "^2.18.1",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.13"
   }
 }
