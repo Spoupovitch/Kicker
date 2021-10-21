@@ -1,7 +1,11 @@
 const express = require("express");
-const db = require("../controllers/db");
+const mongoDB = require("../controllers/db");
+const mongoose = require("mongoose");
 
-const router = express.Router();
+const router = require('../routes/index.js');
+
+// import Task model
+const Task = require('../models/Task');
 
 // create table for to do tasks
 router.get("/create", (req, res) => {
@@ -16,35 +20,49 @@ router.get("/create", (req, res) => {
 
 // show values in table
 router.post("/read", (req, res) => {
-    let query = 
-        "SELECT *" +
-        "FROM to_do_list;";
-    // db.queryDb(req, res, query, 'READ');
-    db.query(query, (err, rows, fields) => {
-        if (!err)
-            res.send(rows);
-        else
-            console.log(err);
-    })
+    // id = req.paraams.id
+    // Task.findById(id)
+    //     .exec()
+    //     .then(task => {
+    //         console.log(task);
+    //         res.status(200).json(task);
+    //     })
+    //     .catch(err => {
+    //         console.log(err);
+    //         res.status(500).json({error: err});
+    //     });
 });
 
-// TODO - troubleshoot db put/get
-// add task to table
+// @desc        add task to table
+// @route       POST /
 router.post("/insert", (req, res) => {
+console.log("BODY: " + JSON.stringify(req.params));
+    let desc = req.params.task_input;
     let create_dt = JSON.stringify(new Date);
-console.log("task received: " + req.params);
-    let query = 
-        "INSERT INTO test.to_do_list" +
-        "(`task_desc`, `task_create_dt`)" +
-        "values (" + req + ", " + create_dt + ");";
-    db.queryDb(req, res, query, 'INSERT');
+console.log("type: " + typeof(desc));
+console.log("task received: " + desc);
+    const task = new Task({
+        _id: new mongoose.Types.ObjectId(), // generate uniqie ID
+        desc: req.params.desc,
+        create_dt: create_dt
+    });
+
+    task.save()
+    .then(result => {
+        console.log(result);
+    })
+    .catch(err => console.log(err));
+
+    res.status(201).json({
+        message: 'POST to /insert received',
+        savedTask: task
+    });
 });
+
 
 // delete table
 router.post("/drop", (req, res) => {
-    let query = 
-        "DROP TABLE to_do_list;";
-    queryDb(req, res, query, 'DROP');
+    
 });
 
 module.exports = router;
